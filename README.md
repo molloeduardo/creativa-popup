@@ -12,6 +12,7 @@ The popup will adapt to every screen.
 - Chrome
 - Firefox
 - Microsoft Edge
+- Safari
 ## Examples
 You can download the archive from GitHub and try the **example.html** file.
 ## Basic syntax
@@ -39,6 +40,7 @@ This is an object where you can specify other parameters to personalize the popu
 popup('Title', 'Text', 'icon', 'image', { content: '<button>Test</button>', isPage: false }
 
 // Including content from another page
+// This function might not work with Safari Browser due to Cross Origin problem; try to use HTTPS.
 popup('Title', 'Text', 'icon', 'image', { content: 'another-page.html', isPage: true }
 ```
 - **Unclosable popup:** you can specify this parameter to avoid the popup to close.
