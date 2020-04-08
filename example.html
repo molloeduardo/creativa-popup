@@ -1,0 +1,153 @@
+<html>
+
+    <head>
+        <script src="https://creativajs.altervista.org/popup/creativa-popup.js" type="text/javascript" defer></script>
+        <title>Creativa: popup</title>
+    </head>
+    
+    <body>
+
+        <div class="group">
+            <h1>Simple popup</h1>
+            <p>Popup with title and text</p>
+            <button onclick="popup1()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Icon popup</h1>
+            <p>Popup with title, text and default icon</p>
+            <button onclick="popup2()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Personalized icon popup</h1>
+            <p>Popup with title, text and personalized icon</p>
+            <button onclick="popup3()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Image popup</h1>
+            <p>Popup with title, text, icon and image</p>
+            <button onclick="popup4()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Unclosable popup</h1>
+            <p>Popup with title and text that you can't close</p>
+            <button onclick="popup5()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Popup with custom content</h1>
+            <p>Popup with only custom content</p>
+            <button onclick="popup6()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Popup with external custom content</h1>
+            <p>Popup with only external custom content (from another page)</p>
+            <button onclick="popup7()">Open popup</button>
+        </div>
+        
+        <div class="group">
+            <h1>Popup with custom size</h1>
+            <p>Popup with title, text and icon that have custom size (width/height).</p>
+            <button onclick="popup8()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Popup with different animations</h1>
+            <p>Popup with title and text that have different open/close animations.</p>
+            <button onclick="popup9()">Open popup</button>
+        </div>
+
+    </body>
+
+</html>
+
+<script>
+
+    function popup1() {
+        popup('Title', 'This is the text of the popup.');
+    }
+
+    function popup2() {
+        popup('Title', 'This is the text of the popup.', 'info');
+    }
+
+    function popup3() {
+        popup('Title', 'This is the text of the popup.', 'fruit.png');
+    }
+
+    function popup4() {
+        popup('Title', 'This is the text of the popup.', 'success', 'image.jpg');
+    }
+
+    function popup5() {
+        popup('Title', 'This is the text of the popup.', '', '', { isBlocked: true });
+    }
+
+    function popup6() {
+        popup('', '', '', '', { content: 'This is custom content.', isPage: false });
+    }
+
+    function popup7() {
+        popup('', '', '', '', { content: 'another-page.html', isPage: true });
+    }
+
+    function popup8() {
+        popup('Title', 'This is the text of the popup.', 'info', '', { width: '400px', height: '400px' })
+    }
+
+    function popup9() {
+        popup('Title', 'This is the text of the popup.', 'info', '', { openAnimation: 'card-left', closeAnimation: 'card-right' })
+    }
+
+</script>
+
+<style>
+
+    html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+        font-family: sans-serif;
+    }
+
+    .group {
+        float: left;
+        margin-left: 40px;
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        font-weight: 20px;
+        font-weight: 500;
+        margin: 0;
+        color: #505050;
+    }
+
+    p {
+        margin-top: 3px;
+        margin-bottom: 16px;
+        color: #555;
+    }
+
+    button {
+        padding: 8px 15px;
+        border: solid 0px;
+        border-radius: 3px;
+        background: #0088ff;
+        color: #fff;
+        outline: none;
+        transition: background 0.1s;
+    } button:hover {
+        cursor: pointer;
+        background: #0077ff;
+    } button:active {
+        background: #0055ff;
+    }
+
+</style>
