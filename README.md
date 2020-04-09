@@ -15,9 +15,9 @@ The popup will adapt to every screen.
 - Safari
 ## Examples
 You can download the archive from GitHub and try the **example.html** file.
-## Basic syntax
+## Syntax
 ```
-popup('title', 'text', 'icon', 'image', extra);
+popup('title', 'text', 'icon', 'image', options);
 ```
 - ### Title
 This is a simple string that defines the title for the popup.
@@ -32,7 +32,7 @@ This parameter defines the popup icon that will be on top of the box. You can us
 ...or you can put your own URL to the image of the icon (png, jpg, gif).
 - ### Image
 Here you can write the URL of an image that will be shown inside the popup.
-- ### Extra
+- ### Options
 This is an object where you can specify other parameters to personalize the popup.
 - **Content:** you can put a string that specify custom content for the poup (such as HTML, or other text) that will be shown under the plain text. In order to use this parameter you have to specify another parameter: **isPage**: this is a boolean that says if the content is plain text content or it is an URL to another page that will be loaded as content inside the popup.
 ```
