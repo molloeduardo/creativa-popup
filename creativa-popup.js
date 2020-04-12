@@ -198,13 +198,11 @@ function popup(title, text, icon, image, options) {
     popupBg.classList.add('fade-ct-popup-animation-open');
     popupBox.style.zIndex = zIndexSecond.toString();
 
-    setTimeout(function() {
-        if (width !== null) popupBox.style.width = width;
-        if (height !== null) popupBox.style.height = height;
-        popupBox.classList.add('ct-popup-show');
-        popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
-    }, transitionSpeed / 2);
-
+    if (width !== null) popupBox.style.width = width;
+    if (height !== null) popupBox.style.height = height;
+    popupBox.classList.add('ct-popup-show');
+    popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
+   
 }
 
 // Close popup function
@@ -218,14 +216,14 @@ function closePopup(id, options) {
         selectedPopupBg.classList.add('fade-ct-popup-animation-close');
         setTimeout(function() {
             selectedPopupBg.remove();
-        }, 150);
+        }, 200);
 
         selectedPopupBox.classList.remove(selectedPopupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
         selectedPopupBox.classList.add(selectedPopupBox.getAttribute('closeAnimation') + '-ct-popup-animation-close');
 
         setTimeout(function() {
             selectedPopupBox.remove();
-        }, 150);
+        }, 200);
         totalPopups --;
 
     }

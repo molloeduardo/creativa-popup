@@ -108,7 +108,7 @@
 
 .fade-ct-popup-animation-open {
     animation-name: fade-ct-popup-animation-open;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
     animation-fill-mode: forwards;
 }
 
@@ -119,7 +119,8 @@
 
 .fade-ct-popup-animation-close {
     animation-name: fade-ct-popup-animation-close;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes fade-ct-popup-animation-close {
@@ -129,10 +130,8 @@
 
 .bubble-ct-popup-animation-open {
     animation-name: bubble-ct-popup-animation-open;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
     animation-fill-mode: forwards;
-    transform: scale(0, 0);
-    opacity: 1;
 }
 
 @keyframes bubble-ct-popup-animation-open {
@@ -143,7 +142,8 @@
 
 .bubble-ct-popup-animation-close {
     animation-name: bubble-ct-popup-animation-close;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes bubble-ct-popup-animation-close {
@@ -154,7 +154,7 @@
 
 .card-right-ct-popup-animation-open {
     animation-name: card-right-ct-popup-animation-open;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
     animation-fill-mode: forwards;
 }
 
@@ -165,7 +165,8 @@
 
 .card-right-ct-popup-animation-close {
     animation-name: card-right-ct-popup-animation-close;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes card-right-ct-popup-animation-close {
@@ -175,7 +176,7 @@
 
 .card-left-ct-popup-animation-open {
     animation-name: card-left-ct-popup-animation-open;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
     animation-fill-mode: forwards;
 }
 
@@ -186,7 +187,8 @@
 
 .card-left-ct-popup-animation-close {
     animation-name: card-left-ct-popup-animation-close;
-    animation-duration: 0.15s;
+    animation-duration: 0.20s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes card-left-ct-popup-animation-close {
@@ -208,11 +210,34 @@
 .newspaper-ct-popup-animation-close {
     animation-name: newspaper-ct-popup-animation-close;
     animation-duration: 0.4s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes newspaper-ct-popup-animation-close {
     from { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
     to { opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(500deg); }
+}
+
+.unfold-ct-popup-animation-open {
+    animation-name: unfold-ct-popup-animation-open;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes unfold-ct-popup-animation-open {
+    from { opacity: 0; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateY(-60deg); }
+    to { opacity: 1; transform: translate(-50%, -50%) rotateY(0deg); }
+}
+
+.unfold-ct-popup-animation-close {
+    animation-name: unfold-ct-popup-animation-close;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes unfold-ct-popup-animation-close {
+    from { opacity: 1; transform: translate(-50%, -50%) rotateY(0deg); }
+    to { opacity: 0; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateY(-60deg); }
 }
 
 /* ----------------------------

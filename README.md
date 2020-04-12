@@ -54,6 +54,7 @@ popup('Title', 'Text', 'icon', 'image', { isBlocked: true }
   - card-left
   - card-right
   - newspaper
+  - unfold
 ```
 popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right' }
 ```
