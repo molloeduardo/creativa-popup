@@ -20,7 +20,7 @@ function loadContent(target, url) {
 
 const version = '0.1';
 const cdn = 'https://creativajs.altervista.org/popup/';
-const transitionSpeed = 70;
+const animationSpeed = 200;
 let totalPopups = 0;
 let thereIsContent = false;
 let content;
@@ -216,14 +216,14 @@ function closePopup(id, options) {
         selectedPopupBg.classList.add('fade-ct-popup-animation-close');
         setTimeout(function() {
             selectedPopupBg.remove();
-        }, 200);
+        }, animationSpeed);
 
         selectedPopupBox.classList.remove(selectedPopupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
         selectedPopupBox.classList.add(selectedPopupBox.getAttribute('closeAnimation') + '-ct-popup-animation-close');
 
         setTimeout(function() {
             selectedPopupBox.remove();
-        }, 200);
+        }, animationSpeed);
         totalPopups --;
 
     }
