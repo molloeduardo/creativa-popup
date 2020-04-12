@@ -98,7 +98,6 @@
 .ct-card-right-popup-animation-close {
     animation-name: ct-card-right-popup-animation-close;
     animation-duration: 0.15s;
-    animation-fill-mode: forwards;
 }
 
 @keyframes ct-card-right-popup-animation-close {
@@ -125,6 +124,27 @@
 @keyframes ct-card-left-popup-animation-close {
     from { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
     to { opacity: 0; left: calc(50% - 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
+}
+
+.ct-newspaper-popup-animation-open {
+    animation-name: ct-newspaper-popup-animation-open;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes ct-newspaper-popup-animation-open {
+    from {opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(500deg);}
+    to {opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg);}
+}
+
+.ct-newspaper-popup-animation-close {
+    animation-name: ct-newspaper-popup-animation-close;
+    animation-duration: 0.4s;
+}
+
+@keyframes ct-newspaper-popup-animation-close {
+    from {opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg);}
+    to {opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(500deg);}
 }
 
 /* --------------------------- */

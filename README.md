@@ -53,6 +53,7 @@ popup('Title', 'Text', 'icon', 'image', { isBlocked: true }
   - bubble
   - card-left
   - card-right
+  - newspaper
 ```
 popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right' }
 ```
