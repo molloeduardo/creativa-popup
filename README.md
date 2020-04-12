@@ -22,7 +22,7 @@ popup('title', 'text', 'icon', 'image', options);
 - ### Title
 This is a simple string that defines the title for the popup.
 - ### Text
-Here you can write the plain text that will be shown inside the popup.
+Here you can write the text that will be shown inside the popup. You can use HTML too.
 - ### Icon
 This parameter defines the popup icon that will be on top of the box. You can use default icons:
 - info
@@ -34,9 +34,9 @@ This parameter defines the popup icon that will be on top of the box. You can us
 Here you can write the URL of an image that will be shown inside the popup.
 - ### Options
 This is an object where you can specify other parameters to personalize the popup.
-- **Content:** you can put a string that specify custom content for the poup (such as HTML, or other text) that will be shown under the plain text. In order to use this parameter you have to specify another parameter: **isPage**: this is a boolean that says if the content is plain text content or it is an URL to another page that will be loaded as content inside the popup.
+- **Content:** you can put a string that specify custom content for the poup (such as HTML, or other text) that will be shown under the text. In order to use this parameter you have to specify another parameter: **isPage**: this is a boolean that says if the content is text content or it is an URL to another page that will be loaded as content inside the popup.
 ```
-// Including plain text content
+// Including text content
 popup('Title', 'Text', 'icon', 'image', { content: '<button>Test</button>', isPage: false }
 
 // Including content from another page

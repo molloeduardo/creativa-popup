@@ -35,7 +35,7 @@ window.onload = function() {
     var link  = document.createElement('link');
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = cdn + '/creativa-popup.css';
+    link.href = cdn + 'creativa-popup.css';
     link.media = 'all';
     head.appendChild(link);
 }
@@ -47,7 +47,7 @@ function popup(title, text, icon, image, elements) {
     
     // Popup background creation
     var divBackground = document.createElement('div');
-    divBackground.className = 'popup-background';
+    divBackground.className = 'ct-popup-background';
     divBackground.id = 'popup-bg-' + totalPopups;
     divBackground.onclick = function () {
         closePopup(totalPopups, elements);
@@ -55,14 +55,14 @@ function popup(title, text, icon, image, elements) {
 
     // Popup box creation
     var divBox = document.createElement('div');
-    divBox.className = 'popup-box';
+    divBox.className = 'ct-popup-box';
     divBox.id = 'popup-box-' + totalPopups;
-    divBox.innerHTML = `<span class="image popup-image" id="popup-image-` + totalPopups + `"></span>
-                        <div class="popup-content" id="popup-content-` + totalPopups + `">
-                            <span class="icon popup-icon" id="popup-icon-` + totalPopups + `"></span>
-                            <h1 class="popup-title" id="popup-title-` + totalPopups + `"></h1>
-                            <p class="popup-text" id="popup-text-` + totalPopups + `"></p>
-                            <div class="popup-elements" id="popup-elements-` + totalPopups + `"></div>
+    divBox.innerHTML = `<span class="ct-popup-image" id="popup-image-` + totalPopups + `"></span>
+                        <div class="ct-popup-content" id="popup-content-` + totalPopups + `">
+                            <span class="ct-popup-icon" id="popup-icon-` + totalPopups + `"></span>
+                            <h1 class="ct-popup-title" id="popup-title-` + totalPopups + `"></h1>
+                            <p class="ct-popup-text" id="popup-text-` + totalPopups + `"></p>
+                            <div class="ct-popup-elements" id="popup-elements-` + totalPopups + `"></div>
                         </div>`;
 
     // Append popup to page
@@ -167,15 +167,15 @@ function popup(title, text, icon, image, elements) {
     let zIndexFirst = 100 + totalPopups + 1;
     let zIndexSecond = 100 + totalPopups + 2;
     popupBg.style.zIndex = zIndexFirst.toString();
-    popupBg.classList.add('popup-show');
-    popupBg.classList.add('fade-popup-animation-open');
+    popupBg.classList.add('ct-popup-show');
+    popupBg.classList.add('ct-fade-popup-animation-open');
     popupBox.style.zIndex = zIndexSecond.toString();
 
     setTimeout(function() {
         if (width !== null) popupBox.style.width = width;
         if (height !== null) popupBox.style.height = height;
-        popupBox.classList.add('popup-show');
-        popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-popup-animation-open');
+        popupBox.classList.add('ct-popup-show');
+        popupBox.classList.add('ct-' + popupBox.getAttribute('openAnimation') + '-popup-animation-open');
     }, transitionSpeed / 2);
 
 }
@@ -188,13 +188,13 @@ function closePopup(id, elements) {
     let isSelectedPopupBlocked = (selectedPopupBg.getAttribute('isBlocked') == "true");
     if (!isSelectedPopupBlocked) {
 
-        selectedPopupBg.classList.add('fade-popup-animation-close');
+        selectedPopupBg.classList.add('ct-fade-popup-animation-close');
         setTimeout(function() {
             selectedPopupBg.remove();
         }, 150);
 
-        selectedPopupBox.classList.remove(selectedPopupBox.getAttribute('openAnimation') + '-popup-animation-open');
-        selectedPopupBox.classList.add(selectedPopupBox.getAttribute('closeAnimation') + '-popup-animation-close');
+        selectedPopupBox.classList.remove('ct-' + selectedPopupBox.getAttribute('openAnimation') + '-popup-animation-open');
+        selectedPopupBox.classList.add('ct-' + selectedPopupBox.getAttribute('closeAnimation') + '-popup-animation-close');
 
         setTimeout(function() {
             selectedPopupBox.remove();
