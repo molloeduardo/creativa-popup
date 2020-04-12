@@ -56,11 +56,16 @@ popup('Title', 'Text', 'icon', 'image', { isBlocked: true }
 ```
 popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right' }
 ```
-... or you can create your own animation inside your CSS file. Just give a name to the animation an then add *-popup-animation-open* or *-popup-animation-close*; for example, if my animation is called **dragon** I'll create the CSS animations with these names: **dragon-popup-animation-open** and **dragon-popup-animation-close** and inside the popup function I'll set the **dragon** string.
+... or you can create your own animation inside your CSS file. Just give a name to the animation an then add *-popup-animation-open* or *-popup-animation-close* at the end of the class name. You need to add the **ct-** prefix too. For example, if my animation is called **dragon** I'll create the CSS animations with these names: **ct-dragon-popup-animation-open** and **ct-dragon-popup-animation-close** and inside the popup function I'll set the **dragon** string.
 - **Custom size:** you can use different width and height for the popup.
 ```
 popup('Title', 'Text', 'icon', 'image', { width: '300px', height: '400px' }
 ```
-This is CSS so you can use every type of unit of measure (px, %, em ecc...)
+- **Positioning:** you can set the position of the popup (top, bottom).
+```
+popup('Title', 'Text', 'icon', 'image', { position: 'top' }
+popup('Title', 'Text', 'icon', 'image', { position: 'bottom' }
+```
+This is CSS so you can use every type of unit of measure (px, %, em ecc...).
 ## Conclusions
 Of course you can use every option you want and mix them together.
