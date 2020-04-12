@@ -36,119 +36,6 @@
     opacity: 1;
 }
 
-/* --- POPUP ANIMATIONS --- */
-
-.ct-fade-popup-animation-open {
-    animation-name: ct-fade-popup-animation-open;
-    animation-duration: 0.15s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes ct-fade-popup-animation-open {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.ct-fade-popup-animation-close {
-    animation-name: ct-fade-popup-animation-close;
-    animation-duration: 0.15s;
-}
-
-@keyframes ct-fade-popup-animation-close {
-    from { opacity: 1; }
-    to { opacity: 0; }
-}
-
-.ct-bubble-popup-animation-open {
-    animation-name: ct-bubble-popup-animation-open;
-    animation-duration: 0.15s;
-    animation-fill-mode: forwards;
-    transform: scale(0, 0);
-    opacity: 1;
-}
-
-@keyframes ct-bubble-popup-animation-open {
-    0% { transform: translate(-50%, -50%) scale(0, 0); }
-    50% { transform: translate(-50%, -50%) scale(1.1, 1.1); }
-    100% { transform: translate(-50%, -50%) scale(1, 1); }
-}
-
-.ct-bubble-popup-animation-close {
-    animation-name: ct-bubble-popup-animation-close;
-    animation-duration: 0.15s;
-}
-
-@keyframes ct-bubble-popup-animation-close {
-    0% { transform: translate(-50%, -50%) scale(1, 1); }
-    50% { transform: translate(-50%, -50%) scale(1.1, 1.1); }
-    100% { transform: translate(-50%, -50%) scale(0, 0); }
-}
-
-.ct-card-right-popup-animation-open {
-    animation-name: ct-card-right-popup-animation-open;
-    animation-duration: 0.15s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes ct-card-right-popup-animation-open {
-    from { opacity: 0; left: calc(50% + 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
-    to { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
-}
-
-.ct-card-right-popup-animation-close {
-    animation-name: ct-card-right-popup-animation-close;
-    animation-duration: 0.15s;
-}
-
-@keyframes ct-card-right-popup-animation-close {
-    from { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
-    to { opacity: 0; left: calc(50% + 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
-}
-
-.ct-card-left-popup-animation-open {
-    animation-name: ct-card-left-popup-animation-open;
-    animation-duration: 0.15s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes ct-card-left-popup-animation-open {
-    from { opacity: 0; left: calc(50% - 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
-    to { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
-}
-
-.ct-card-left-popup-animation-close {
-    animation-name: ct-card-left-popup-animation-close;
-    animation-duration: 0.15s;
-}
-
-@keyframes ct-card-left-popup-animation-close {
-    from { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
-    to { opacity: 0; left: calc(50% - 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
-}
-
-.ct-newspaper-popup-animation-open {
-    animation-name: ct-newspaper-popup-animation-open;
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
-}
-
-@keyframes ct-newspaper-popup-animation-open {
-    from {opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(500deg);}
-    to {opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg);}
-}
-
-.ct-newspaper-popup-animation-close {
-    animation-name: ct-newspaper-popup-animation-close;
-    animation-duration: 0.4s;
-}
-
-@keyframes ct-newspaper-popup-animation-close {
-    from {opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg);}
-    to {opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(500deg);}
-}
-
-/* --------------------------- */
-
 .ct-popup-image, .ct-popup-icon {
     display: block;
     background-size: cover;
@@ -213,6 +100,119 @@
 
 .ct-popup-elements * {
     float: left;
+}
+
+/* ----------------------------
+-------- ANIMATIONS -----------
+---------------------------- */
+
+.fade-ct-popup-animation-open {
+    animation-name: fade-ct-popup-animation-open;
+    animation-duration: 0.15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade-ct-popup-animation-open {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-ct-popup-animation-close {
+    animation-name: fade-ct-popup-animation-close;
+    animation-duration: 0.15s;
+}
+
+@keyframes fade-ct-popup-animation-close {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.bubble-ct-popup-animation-open {
+    animation-name: bubble-ct-popup-animation-open;
+    animation-duration: 0.15s;
+    animation-fill-mode: forwards;
+    transform: scale(0, 0);
+    opacity: 1;
+}
+
+@keyframes bubble-ct-popup-animation-open {
+    0% { transform: translate(-50%, -50%) scale(0, 0); }
+    50% { transform: translate(-50%, -50%) scale(1.1, 1.1); }
+    100% { transform: translate(-50%, -50%) scale(1, 1); }
+}
+
+.bubble-ct-popup-animation-close {
+    animation-name: bubble-ct-popup-animation-close;
+    animation-duration: 0.15s;
+}
+
+@keyframes bubble-ct-popup-animation-close {
+    0% { transform: translate(-50%, -50%) scale(1, 1); }
+    50% { transform: translate(-50%, -50%) scale(1.1, 1.1); }
+    100% { transform: translate(-50%, -50%) scale(0, 0); }
+}
+
+.card-right-ct-popup-animation-open {
+    animation-name: card-right-ct-popup-animation-open;
+    animation-duration: 0.15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-right-ct-popup-animation-open {
+    from { opacity: 0; left: calc(50% + 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
+    to { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
+}
+
+.card-right-ct-popup-animation-close {
+    animation-name: card-right-ct-popup-animation-close;
+    animation-duration: 0.15s;
+}
+
+@keyframes card-right-ct-popup-animation-close {
+    from { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
+    to { opacity: 0; left: calc(50% + 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
+}
+
+.card-left-ct-popup-animation-open {
+    animation-name: card-left-ct-popup-animation-open;
+    animation-duration: 0.15s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-left-ct-popup-animation-open {
+    from { opacity: 0; left: calc(50% - 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
+    to { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
+}
+
+.card-left-ct-popup-animation-close {
+    animation-name: card-left-ct-popup-animation-close;
+    animation-duration: 0.15s;
+}
+
+@keyframes card-left-ct-popup-animation-close {
+    from { opacity: 1; left: 50%; transform: translate(-50%, -50%) scale(1, 1); }
+    to { opacity: 0; left: calc(50% - 200px); transform: translate(-50%, -50%) scale(0.8, 0.8); }
+}
+
+.newspaper-ct-popup-animation-open {
+    animation-name: newspaper-ct-popup-animation-open;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes newspaper-ct-popup-animation-open {
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(500deg); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+}
+
+.newspaper-ct-popup-animation-close {
+    animation-name: newspaper-ct-popup-animation-close;
+    animation-duration: 0.4s;
+}
+
+@keyframes newspaper-ct-popup-animation-close {
+    from { opacity: 1; transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+    to { opacity: 0; transform: translate(-50%, -50%) scale(0) rotate(500deg); }
 }
 
 /* ----------------------------

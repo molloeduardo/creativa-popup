@@ -57,7 +57,7 @@ popup('Title', 'Text', 'icon', 'image', { isBlocked: true }
 ```
 popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right' }
 ```
-... or you can create your own animation inside your CSS file. Just give a name to the animation an then add *-popup-animation-open* or *-popup-animation-close* at the end of the class name. You need to add the **ct-** prefix too. For example, if my animation is called **dragon** I'll create the CSS animations with these names: **ct-dragon-popup-animation-open** and **ct-dragon-popup-animation-close** and inside the popup function I'll set the **dragon** string.
+... or you can create your own animation inside your CSS file. Just give a name to the animation an then add *-ct-popup-animation-open* or *-ct-popup-animation-close* at the end of the class name. For example, if my animation is called **dragon** I'll create the CSS animations with these names: **dragon-ct-popup-animation-open** and **dragon-ct-popup-animation-close** and inside the popup function I'll set the **dragon** string.
 - **Custom size:** you can use different width and height for the popup.
 ```
 popup('Title', 'Text', 'icon', 'image', { width: '300px', height: '400px' }
