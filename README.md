@@ -8,6 +8,8 @@ You can import the JS file in two ways:
 The CSS will be automatically included from the **creativa-popup.js** file inside the HTML head.
 ## Responsive
 The popup will adapt to every screen.
+## Multiple popups
+You can open multiple popups one over another.
 ## Tested browsers
 - Chrome
 - Firefox

@@ -61,6 +61,18 @@
             <button onclick="popup9()">Open popup</button>
         </div>
 
+        <div class="group">
+            <h1>Popup position</h1>
+            <p>Popup with title and text that is positioned on top of the page<br>and use the 'bubble' animation.</p>
+            <button onclick="popup10()">Open popup</button>
+        </div>
+
+        <div class="group">
+            <h1>Popup overlay</h1>
+            <p>Open three simple popups concurrently that have different closing animations.</p>
+            <button onclick="popup11()">Open popups</button>
+        </div>
+
     </body>
 
 </html>
@@ -101,6 +113,16 @@
 
     function popup9() {
         popup('Title', 'This is the text of the popup.', 'info', '', { openAnimation: 'card-left', closeAnimation: 'card-right' })
+    }
+
+    function popup10() {
+        popup('Title', 'This is the text of the popup.', '', '', { position: 'top', openAnimation: 'bubble', closeAnimation: 'bubble' });
+    } 
+
+    function popup11() {
+        popup('Title', 'First popup.', '', '', { closeAnimation: 'bubble' });
+        popup('Title', 'Second popup.', '', '', { closeAnimation: 'card-left' });
+        popup('Title', 'Third popup.', '', '', { closeAnimation: 'card-right' });
     }
 
 </script>

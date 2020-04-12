@@ -25,9 +25,10 @@ let totalPopups = 0;
 let thereIsContent = false;
 let content;
 let isPage;
-let openAnimation, closeAnimation;
+let openAnimation, closeAnimation, position;
 let isBlocked = false;
 let width = '', height = '';
+let positionBottom = window.innerHeight - 100;
 
 // CSS load
 window.onload = function() {
@@ -35,13 +36,24 @@ window.onload = function() {
     var link  = document.createElement('link');
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'creativa-popup.css';
+    link.href = './creativa-popup.css';
     link.media = 'all';
     head.appendChild(link);
 }
 
+window.onresize = function(event) {
+    let allPopups = this.document.getElementsByClassName('ct-popup-box');
+    for (let i = 0; i < allPopups.length; i++) {
+        let element = document.getElementById(allPopups[i].id);
+        if (element.getAttribute('position') == 'bottom') {
+            positionBottom = window.innerHeight - 100;
+            element.style.top = positionBottom + 'px';
+        }
+    }
+}
+
 // Open popup function
-function popup(title, text, icon, image, elements) {
+function popup(title, text, icon, image, options) {
 
     totalPopups ++;
     
@@ -50,7 +62,7 @@ function popup(title, text, icon, image, elements) {
     divBackground.className = 'ct-popup-background';
     divBackground.id = 'popup-bg-' + totalPopups;
     divBackground.onclick = function () {
-        closePopup(totalPopups, elements);
+        closePopup(totalPopups, options);
     };
 
     // Popup box creation
@@ -62,7 +74,7 @@ function popup(title, text, icon, image, elements) {
                             <span class="ct-popup-icon" id="popup-icon-` + totalPopups + `"></span>
                             <h1 class="ct-popup-title" id="popup-title-` + totalPopups + `"></h1>
                             <p class="ct-popup-text" id="popup-text-` + totalPopups + `"></p>
-                            <div class="ct-popup-elements" id="popup-elements-` + totalPopups + `"></div>
+                            <div class="ct-popup-options" id="popup-options-` + totalPopups + `"></div>
                         </div>`;
 
     // Append popup to page
@@ -77,15 +89,16 @@ function popup(title, text, icon, image, elements) {
     let popupTitle = document.getElementById('popup-title-' + totalPopups);
     let popupText = document.getElementById('popup-text-' + totalPopups);
 
-    if (typeof elements !== 'undefined' && elements !== null && elements !== '') {
-        content = elements['content'];
-        isPage = elements['isPage'];
-        isBlocked = elements['isBlocked'];
-        width = elements['width'];
-        height = elements['height'];
+    if (typeof options !== 'undefined' && options !== null && options !== '') {
+        content = options['content'];
+        isPage = options['isPage'];
+        isBlocked = options['isBlocked'];
+        width = options['width'];
+        height = options['height'];
         thereIsContent = true;
-        openAnimation = elements['openAnimation'];
-        closeAnimation = elements['closeAnimation'];
+        openAnimation = options['openAnimation'];
+        closeAnimation = options['closeAnimation'];
+        position = options['position'];
     } else {
         content = null;
         isPage = false;
@@ -95,14 +108,28 @@ function popup(title, text, icon, image, elements) {
         thereIsContent = false;
         openAnimation = 'fade';
         closeAnimation = 'fade';
+        position = 'center';
     }
 
     if (typeof openAnimation == 'undefined') openAnimation = 'fade';
     if (typeof closeAnimation == 'undefined') closeAnimation = 'fade';
+    if (typeof position == 'undefined') position = 'center';
 
     popupBg.setAttribute('isBlocked', isBlocked);
     popupBox.setAttribute('openAnimation', openAnimation);
     popupBox.setAttribute('closeAnimation', closeAnimation);
+    popupBox.setAttribute('position', position);
+
+    switch (position) {
+
+        case 'top':
+            popupBox.style.top = '100px';
+            break;
+        case 'bottom':
+            popupBox.style.top = positionBottom + 'px';
+            break;
+
+    }
 
     popupImage.style.display = "none";
     popupIcon.style.display = "none";
@@ -149,18 +176,18 @@ function popup(title, text, icon, image, elements) {
     popupTitle.innerHTML = title;
     popupText.innerHTML = text;
 
-    let popupElements = document.getElementById('popup-elements-' + totalPopups);
+    let popupoptions = document.getElementById('popup-options-' + totalPopups);
     if (typeof content == 'undefined' || content == null || content == '') {
-        popupElements.style.marginTop = '0';
-        popupElements.style.innerHtml = '';
+        popupoptions.style.marginTop = '0';
+        popupoptions.style.innerHtml = '';
     } else {
         if (thereIsContent) {
             if (!isPage) {
-                popupElements.innerHTML = content;
+                popupoptions.innerHTML = content;
             } else {
-                loadContent(popupElements, content);
+                loadContent(popupoptions, content);
             }
-            if (popupTitle.innerHTML !== '' && popupText.innerHTML !== '' && popupTitle !== null && popupText !== null) popupElements.style.marginTop = '10px';
+            if (popupTitle.innerHTML !== '' && popupText.innerHTML !== '' && popupTitle !== null && popupText !== null) popupoptions.style.marginTop = '10px';
         }
     }
 
@@ -181,7 +208,7 @@ function popup(title, text, icon, image, elements) {
 }
 
 // Close popup function
-function closePopup(id, elements) {
+function closePopup(id, options) {
     let selectedPopupBg = document.getElementById('popup-bg-' + id);
     let selectedPopupBox = document.getElementById('popup-box-' + id);
 
