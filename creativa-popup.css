@@ -9,7 +9,7 @@
     left: 0;
     top: 0;
     background-color: rgba(10, 10, 10, 0.8);
-    display: none;
+    opacity: 0;
 }
 
 .ct-popup-container {
@@ -17,7 +17,7 @@
 }
 
 .ct-popup-box {
-    display: none;
+    opacity: 0;
     width: fit-content;
     width: -moz-fit-content;
     background: #fff;
@@ -33,7 +33,7 @@
 }
 
 .ct-popup-show {
-    display: block;
+    opacity: 1;
 }
 
 /* --- POPUP ANIMATIONS --- */
@@ -41,6 +41,7 @@
 .ct-fade-popup-animation-open {
     animation-name: ct-fade-popup-animation-open;
     animation-duration: 0.15s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes ct-fade-popup-animation-open {
@@ -61,6 +62,9 @@
 .ct-bubble-popup-animation-open {
     animation-name: ct-bubble-popup-animation-open;
     animation-duration: 0.15s;
+    animation-fill-mode: forwards;
+    transform: scale(0, 0);
+    opacity: 1;
 }
 
 @keyframes ct-bubble-popup-animation-open {
@@ -83,6 +87,7 @@
 .ct-card-right-popup-animation-open {
     animation-name: ct-card-right-popup-animation-open;
     animation-duration: 0.15s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes ct-card-right-popup-animation-open {
@@ -104,6 +109,7 @@
 .ct-card-left-popup-animation-open {
     animation-name: ct-card-left-popup-animation-open;
     animation-duration: 0.15s;
+    animation-fill-mode: forwards;
 }
 
 @keyframes ct-card-left-popup-animation-open {
