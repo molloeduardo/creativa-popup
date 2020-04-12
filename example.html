@@ -2,75 +2,80 @@
 
     <head>
         <script src="creativa-popup.js" type="text/javascript"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Creativa: popup</title>
     </head>
     
     <body>
 
-        <div class="group">
-            <h1>Simple popup</h1>
-            <p>Popup with title and text</p>
-            <button onclick="popup1()">Open popup</button>
-        </div>
+        <div class="container">
 
-        <div class="group">
-            <h1>Icon popup</h1>
-            <p>Popup with title, text and default icon</p>
-            <button onclick="popup2()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Simple popup</h1>
+                <p>Popup with title and text</p>
+                <button onclick="popup1()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Personalized icon popup</h1>
-            <p>Popup with title, text and personalized icon</p>
-            <button onclick="popup3()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Icon popup</h1>
+                <p>Popup with title, text and default icon</p>
+                <button onclick="popup2()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Image popup</h1>
-            <p>Popup with title, text, icon and image</p>
-            <button onclick="popup4()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Personalized icon popup</h1>
+                <p>Popup with title, text and personalized icon</p>
+                <button onclick="popup3()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Unclosable popup</h1>
-            <p>Popup with title and text that you can't close</p>
-            <button onclick="popup5()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Image popup</h1>
+                <p>Popup with title, text, icon and image</p>
+                <button onclick="popup4()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Popup with custom content</h1>
-            <p>Popup with only custom content</p>
-            <button onclick="popup6()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Unclosable popup</h1>
+                <p>Popup with title and text that you can't close</p>
+                <button onclick="popup5()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Popup with external custom content</h1>
-            <p>Popup with only external custom content (from another page)</p>
-            <button onclick="popup7()">Open popup</button>
-        </div>
-        
-        <div class="group">
-            <h1>Popup with custom size</h1>
-            <p>Popup with title, text and icon that have custom size (width/height).</p>
-            <button onclick="popup8()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Popup with custom content</h1>
+                <p>Popup with only custom content</p>
+                <button onclick="popup6()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Popup with different animations</h1>
-            <p>Popup with title and text that have different open/close animations.</p>
-            <button onclick="popup9()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Popup with external custom content</h1>
+                <p>Popup with only external custom content (from another page)</p>
+                <button onclick="popup7()">Open popup</button>
+            </div>
+            
+            <div class="group">
+                <h1>Popup with custom size</h1>
+                <p>Popup with title, text and icon that have custom size (width/height).</p>
+                <button onclick="popup8()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Popup position</h1>
-            <p>Popup with title and text that is positioned on top of the page<br>and use the 'bubble' animation.</p>
-            <button onclick="popup10()">Open popup</button>
-        </div>
+            <div class="group">
+                <h1>Popup with different animations</h1>
+                <p>Popup with title and text that have different open/close animations.</p>
+                <button onclick="popup9()">Open popup</button>
+            </div>
 
-        <div class="group">
-            <h1>Popup overlay</h1>
-            <p>Open three simple popups concurrently that have different closing animations.</p>
-            <button onclick="popup11()">Open popups</button>
+            <div class="group">
+                <h1>Popup position</h1>
+                <p>Popup with title and text that is positioned on top of the page<br>and use the 'bubble' animation.</p>
+                <button onclick="popup10()">Open popup</button>
+            </div>
+
+            <div class="group">
+                <h1>Popup overlay</h1>
+                <p>Open three simple popups concurrently that have different closing animations.</p>
+                <button onclick="popup11()">Open popups</button>
+            </div>
+
         </div>
 
     </body>
@@ -138,6 +143,11 @@
         font-family: sans-serif;
     }
 
+    .container {
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
     .group {
         float: left;
         margin-left: 40px;
@@ -170,6 +180,27 @@
         background: #0077ff;
     } button:active {
         background: #0055ff;
+    }
+
+    @media (max-width: 500px) {
+        .container {
+            width: 100%;
+        }
+        
+        .group {
+            float: none;
+            margin: auto;
+            margin-bottom: 40px;
+        }
+
+        button {
+            display: block;
+            margin: auto;
+        }
+        
+        h1, p {
+            text-align: center;
+        }
     }
 
 </style>

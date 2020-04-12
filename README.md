@@ -17,6 +17,7 @@ You can open multiple popups one over another.
 - Safari
 ## Examples
 You can download the archive from GitHub and try the **example.html** file.
+Or you can go here: https://creativajs.altervista.org/popup/example.html
 ## Syntax
 ```
 popup('title', 'text', 'icon', 'image', options);
