@@ -5,7 +5,7 @@ You can import the JS file in two ways:
 1. Using the HTTPS link to the file: https://creativajs.altervista.org/popup/creativa-popup.js
 2. With offline file. If you want to use the offline file just download the archive here and import the **creativa-popup.js** file in your HTML.
 ## Where is the CSS?
-The CSS will be automatically included from the **creativa-popup.js** file inside the HTML head.
+The CSS will be automatically included from the **creativa-popup.js** file inside the HTML head. If this not happens, just include the CSS too.
 ## Responsive
 The popup will adapt to every screen.
 ## Multiple popups
