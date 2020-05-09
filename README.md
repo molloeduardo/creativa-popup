@@ -3,9 +3,9 @@ This is a simple library that allows you to create awesome popups importing just
 ## Getting started
 You can import the JS file in two ways:
 1. Using the HTTPS link to the file: https://creativajs.altervista.org/popup/creativa-popup.js
-2. With offline file. If you want to use the offline file just download the archive here and import the **creativa-popup.js** file in your HTML.
+2. With offline file. If you want to use the offline file just download the archive, import the **creativa-popup.js** file in your project and use it into your HTML.
 ## Where is the CSS?
-The CSS will be automatically included from the **creativa-popup.js** file inside the HTML head. If this not happens, just include the CSS too.
+The CSS will be automatically included from the **creativa-popup.js** file inside the HTML head. If this not happens, just import and use the CSS file too.
 ## Responsive
 The popup will adapt to every screen.
 ## Multiple popups
@@ -76,6 +76,13 @@ popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff0000' }                //
 popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff000055' }              // Red opaque background using HEX code with alpha
 popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgb(255, 0, 0)' }         // Red background using RGB code.
 popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgba(255, 0, 0, 0.4)' }   // Red opaque background using RGBA code.
+```
+- **Title/text color:** you can set the title and text color using HEX, RGB, RGBA codes.
+```
+popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff0000', textColor: '#ff0000' }                               // Red title and text using HEX code
+popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff000055', textColor: '#ff000055' }                           // Red opaque title and text using HEX code with alpha
+popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgb(255, 0, 0)', textColor: 'rgb(255, 255, 0)' }               // Red title and text using RGB code.
+popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', textColor: 'rgba(255, 255, 0, 0.4)' }   // Red opaque title and text using RGBA code.
 ```
 ## Conclusions
 Of course you can use every option you want and mix them together.
