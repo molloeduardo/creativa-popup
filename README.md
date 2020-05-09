@@ -70,7 +70,7 @@ This is CSS so you can use every type of unit of measure (px, %, em ecc...).
 popup('Title', 'Text', 'icon', 'image', { position: 'top' }
 popup('Title', 'Text', 'icon', 'image', { position: 'bottom' }
 ```
-- **Background color: ** you can set the background color using HEX, RGB, RGBA codes.
+- **Background color:** you can set the background color using HEX, RGB, RGBA codes.
 ```
 popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff0000' }                // Red background using HEX code
 popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff000055' }              // Red opaque background using HEX code with alpha
