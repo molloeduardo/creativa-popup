@@ -72,17 +72,31 @@ popup('Title', 'Text', 'icon', 'image', { position: 'bottom' }
 ```
 - **Background color:** you can set the background color using HEX, RGB, RGBA codes.
 ```
-popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff0000' }                // Red background using HEX code
-popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff000055' }              // Red opaque background using HEX code with alpha
-popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgb(255, 0, 0)' }         // Red background using RGB code.
-popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgba(255, 0, 0, 0.4)' }   // Red opaque background using RGBA code.
+// Red background using HEX code
+popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff0000' }
+
+// Red opaque background using HEX code with alpha
+popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff000055' }
+
+// Red background using RGB code.
+popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgb(255, 0, 0)' }
+
+// Red opaque background using RGBA code.
+popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgba(255, 0, 0, 0.4)' }
 ```
 - **Title/text color:** you can set the title and text color using HEX, RGB, RGBA codes.
 ```
-popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff0000', textColor: '#ff0000' }                               // Red title and text using HEX code
-popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff000055', textColor: '#ff000055' }                           // Red opaque title and text using HEX code with alpha
-popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgb(255, 0, 0)', textColor: 'rgb(255, 255, 0)' }               // Red title and text using RGB code.
-popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', textColor: 'rgba(255, 255, 0, 0.4)' }   // Red opaque title and text using RGBA code.
+// Red title and text using HEX code
+popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff0000', textColor: '#ff0000' }
+
+// Red opaque title and text using HEX code with alpha
+popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff000055', textColor: '#ff000055' }
+
+// Red title and text using RGB code.
+popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgb(255, 0, 0)', textColor: 'rgb(255, 255, 0)' }
+
+// Red opaque title and text using RGBA code.
+popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', textColor: 'rgba(255, 255, 0, 0.4)' }
 ```
 ## Conclusions
 Of course you can use every option you want and mix them together.
