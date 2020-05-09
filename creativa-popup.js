@@ -20,7 +20,7 @@ function loadContent(target, url) {
 
 const version = '0.1';
 const cdn = 'https://creativajs.altervista.org/popup/';
-const animationSpeed = 200;
+const animationSpeed = 150;
 let totalPopups = 0;
 let thereIsContent = false;
 let content;
@@ -209,11 +209,13 @@ function popup(title, text, icon, image, options) {
     popupBg.classList.add('ct-popup-show');
     popupBg.classList.add('fade-ct-popup-animation-open');
 
-    if (width !== null) popupBox.style.width = width;
-    if (height !== null) popupBox.style.height = height;
+    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';';
+
+    if (width !== null) popupBoxStyle += ' width: ' + width + ' !important;';
+    if (height !== null) popupBoxStyle += ' height: ' + height + ' !important;';
     popupBox.classList.add('ct-popup-show');
     popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
-    popupBox.setAttribute('style', 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString());
+    popupBox.setAttribute('style', popupBoxStyle);
     popupTitle.setAttribute('style', 'color: ' + popupBox.getAttribute('titleColor') + ' !important');
     popupText.setAttribute('style', 'color: ' + popupBox.getAttribute('textColor') + ' !important');
    

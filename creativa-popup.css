@@ -108,7 +108,7 @@
 
 .fade-ct-popup-animation-open {
     animation-name: fade-ct-popup-animation-open;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -119,7 +119,7 @@
 
 .fade-ct-popup-animation-close {
     animation-name: fade-ct-popup-animation-close;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -130,7 +130,7 @@
 
 .bubble-ct-popup-animation-open {
     animation-name: bubble-ct-popup-animation-open;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -142,7 +142,7 @@
 
 .bubble-ct-popup-animation-close {
     animation-name: bubble-ct-popup-animation-close;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -154,7 +154,7 @@
 
 .card-right-ct-popup-animation-open {
     animation-name: card-right-ct-popup-animation-open;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -165,7 +165,7 @@
 
 .card-right-ct-popup-animation-close {
     animation-name: card-right-ct-popup-animation-close;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -176,7 +176,7 @@
 
 .card-left-ct-popup-animation-open {
     animation-name: card-left-ct-popup-animation-open;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -187,7 +187,7 @@
 
 .card-left-ct-popup-animation-close {
     animation-name: card-left-ct-popup-animation-close;
-    animation-duration: 0.20s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
