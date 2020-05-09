@@ -25,7 +25,7 @@ let totalPopups = 0;
 let thereIsContent = false;
 let content;
 let isPage;
-let openAnimation, closeAnimation, position;
+let openAnimation, closeAnimation, position, bgColor, titleColor, textColor;
 let isBlocked = false;
 let width = '', height = '';
 let positionBottom = window.innerHeight - 100;
@@ -99,6 +99,9 @@ function popup(title, text, icon, image, options) {
         openAnimation = options['openAnimation'];
         closeAnimation = options['closeAnimation'];
         position = options['position'];
+        bgColor = options['bgColor'];
+        titleColor = options['titleColor'];
+        textColor = options['textColor'];
     } else {
         content = null;
         isPage = false;
@@ -109,6 +112,9 @@ function popup(title, text, icon, image, options) {
         openAnimation = 'fade';
         closeAnimation = 'fade';
         position = 'center';
+        bgColor = '#fff';
+        titleColor = '#404040';
+        textcolor = '#606060';
     }
 
     if (typeof openAnimation == 'undefined') openAnimation = 'fade';
@@ -202,6 +208,9 @@ function popup(title, text, icon, image, options) {
     if (height !== null) popupBox.style.height = height;
     popupBox.classList.add('ct-popup-show');
     popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
+    popupBox.style.backgroundColor = bgColor;
+    popupTitle.setAttribute('style', 'color: ' + titleColor + ' !important');
+    popupText.setAttribute('style', 'color: ' + textColor + ' !important');
    
 }
 

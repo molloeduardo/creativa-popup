@@ -76,6 +76,18 @@
                 <button onclick="popup11()">Open popups</button>
             </div>
 
+            <div class="group">
+                <h1>Popup background color</h1>
+                <p>Popup with title, text and different background color.</p>
+                <button onclick="popup12()">Open popups</button>
+            </div>
+
+            <div class="group">
+                <h1>Popup title/text color</h1>
+                <p>Popup with title and text with different colors.</p>
+                <button onclick="popup13()">Open popups</button>
+            </div>
+
         </div>
 
     </body>
@@ -128,6 +140,14 @@
         popup('Title', 'First popup.', '', '', { closeAnimation: 'bubble' });
         popup('Title', 'Second popup.', '', '', { closeAnimation: 'card-left' });
         popup('Title', 'Third popup.', '', '', { closeAnimation: 'card-right' });
+    }
+
+    function popup12() {
+        popup('Title', 'This popup has a different background color and opacity.', '', '', { bgColor: '#ff000044' })
+    }
+
+    function popup13() {
+        popup('Title', 'This popup has title and text with different colors.', '', '', { titleColor: '#ff0000', textColor: '#00ff00' });
     }
 
 </script>

@@ -64,11 +64,18 @@ popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnima
 ```
 popup('Title', 'Text', 'icon', 'image', { width: '300px', height: '400px' }
 ```
+This is CSS so you can use every type of unit of measure (px, %, em ecc...).
 - **Positioning:** you can set the position of the popup (top, bottom).
 ```
 popup('Title', 'Text', 'icon', 'image', { position: 'top' }
 popup('Title', 'Text', 'icon', 'image', { position: 'bottom' }
 ```
-This is CSS so you can use every type of unit of measure (px, %, em ecc...).
+-**Background color: ** you can set the background color using HEX, RGB, RGBA codes.
+```
+popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff0000' }                // Red background using HEX code
+popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff000055' }              // Red opaque background using HEX code with alpha
+popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgb(255, 0, 0)' }         // Red background using RGB code.
+popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgba(255, 0, 0, 0.4)' }   // Red opaque background using RGBA code.
+```
 ## Conclusions
 Of course you can use every option you want and mix them together.
