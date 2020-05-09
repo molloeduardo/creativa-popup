@@ -114,17 +114,23 @@ function popup(title, text, icon, image, options) {
         position = 'center';
         bgColor = '#fff';
         titleColor = '#404040';
-        textcolor = '#606060';
+        textColor = '#606060';
     }
 
     if (typeof openAnimation == 'undefined') openAnimation = 'fade';
     if (typeof closeAnimation == 'undefined') closeAnimation = 'fade';
     if (typeof position == 'undefined') position = 'center';
+    if (typeof bgColor == 'undefined') bgColor = '#fff';
+    if (typeof titleColor == 'undefined') titleColor = '#404040';
+    if (typeof textColor == 'undefined') textColor = '#606060';
 
     popupBg.setAttribute('isBlocked', isBlocked);
     popupBox.setAttribute('openAnimation', openAnimation);
     popupBox.setAttribute('closeAnimation', closeAnimation);
     popupBox.setAttribute('position', position);
+    popupBox.setAttribute('bgColor', bgColor);
+    popupBox.setAttribute('titleColor', titleColor);
+    popupBox.setAttribute('textColor', textColor);
 
     switch (position) {
 
@@ -202,15 +208,14 @@ function popup(title, text, icon, image, options) {
     popupBg.style.zIndex = zIndexFirst.toString();
     popupBg.classList.add('ct-popup-show');
     popupBg.classList.add('fade-ct-popup-animation-open');
-    popupBox.style.zIndex = zIndexSecond.toString();
 
     if (width !== null) popupBox.style.width = width;
     if (height !== null) popupBox.style.height = height;
     popupBox.classList.add('ct-popup-show');
     popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
-    popupBox.style.backgroundColor = bgColor;
-    popupTitle.setAttribute('style', 'color: ' + titleColor + ' !important');
-    popupText.setAttribute('style', 'color: ' + textColor + ' !important');
+    popupBox.setAttribute('style', 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString());
+    popupTitle.setAttribute('style', 'color: ' + popupBox.getAttribute('titleColor') + ' !important');
+    popupText.setAttribute('style', 'color: ' + popupBox.getAttribute('textColor') + ' !important');
    
 }
 
