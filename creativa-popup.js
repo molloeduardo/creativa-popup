@@ -56,7 +56,7 @@ window.onresize = function(event) {
 function popup(title, text, icon, image, options) {
 
     totalPopups ++;
-    
+
     // Popup background creation
     var divBackground = document.createElement('div');
     divBackground.className = 'ct-popup-background';
@@ -132,17 +132,6 @@ function popup(title, text, icon, image, options) {
     popupBox.setAttribute('titleColor', titleColor);
     popupBox.setAttribute('textColor', textColor);
 
-    switch (position) {
-
-        case 'top':
-            popupBox.style.top = '100px';
-            break;
-        case 'bottom':
-            popupBox.style.top = positionBottom + 'px';
-            break;
-
-    }
-
     popupImage.style.display = "none";
     popupIcon.style.display = "none";
 
@@ -209,7 +198,20 @@ function popup(title, text, icon, image, options) {
     popupBg.classList.add('ct-popup-show');
     popupBg.classList.add('fade-ct-popup-animation-open');
 
-    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';';
+    let popupBoxPosition;
+    switch (position) {
+
+        case 'top':
+            popupBoxPosition = 'top: 100px';
+            break;
+        case 'bottom':
+            popupBoxPosition = 'top: ' + positionBottom + 'px';
+            break;
+
+    }
+
+
+    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + '!important;';
 
     if (width !== null) popupBoxStyle += ' width: ' + width + ' !important;';
     if (height !== null) popupBoxStyle += ' height: ' + height + ' !important;';
@@ -218,7 +220,7 @@ function popup(title, text, icon, image, options) {
     popupBox.setAttribute('style', popupBoxStyle);
     popupTitle.setAttribute('style', 'color: ' + popupBox.getAttribute('titleColor') + ' !important');
     popupText.setAttribute('style', 'color: ' + popupBox.getAttribute('textColor') + ' !important');
-   
+
 }
 
 // Close popup function
