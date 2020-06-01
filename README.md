@@ -98,7 +98,7 @@ popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgb(255, 0, 0)', textColo
 // Red opaque title and text using RGBA code.
 popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', textColor: 'rgba(255, 255, 0, 0.4)' }
 ```
-- ***Border radius:*** you can change the popup border radius by adding a simple option.
+- **Border radius:** you can change the popup border radius by adding a simple option.
 ```
 popup('Title', 'Text', 'icon', 'image', { borderRadius: '20px' }
 ```
