@@ -2,7 +2,6 @@
 function loadContent(target, url) {
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
-
     request.onload = function() {
     if (request.status >= 200 && request.status < 400) {
         var resp = request.responseText;
@@ -10,7 +9,6 @@ function loadContent(target, url) {
         target.innerHTML = resp;
     }
     };
-
     request.send();
 }
 
@@ -25,7 +23,7 @@ let totalPopups = 0;
 let thereIsContent = false;
 let content;
 let isPage;
-let openAnimation, closeAnimation, position, bgColor, titleColor, textColor;
+let openAnimation, closeAnimation, position, bgColor, titleColor, textColor, borderRadius;
 let isBlocked = false;
 let width = '', height = '';
 let positionBottom = window.innerHeight - 100;
@@ -102,7 +100,10 @@ function popup(title, text, icon, image, options) {
         bgColor = options['bgColor'];
         titleColor = options['titleColor'];
         textColor = options['textColor'];
+        borderRadius = options['borderRadius'];
     } else {
+
+        // Default values
         content = null;
         isPage = false;
         isBlocked = false;
@@ -115,6 +116,8 @@ function popup(title, text, icon, image, options) {
         bgColor = '#fff';
         titleColor = '#404040';
         textColor = '#606060';
+        borderRadius = '3px';
+
     }
 
     if (typeof openAnimation == 'undefined') openAnimation = 'fade';
@@ -123,6 +126,7 @@ function popup(title, text, icon, image, options) {
     if (typeof bgColor == 'undefined') bgColor = '#fff';
     if (typeof titleColor == 'undefined') titleColor = '#404040';
     if (typeof textColor == 'undefined') textColor = '#606060';
+    if (typeof borderRadius == 'undefined') borderRadius = '3px';
 
     popupBg.setAttribute('isBlocked', isBlocked);
     popupBox.setAttribute('openAnimation', openAnimation);
@@ -131,6 +135,7 @@ function popup(title, text, icon, image, options) {
     popupBox.setAttribute('bgColor', bgColor);
     popupBox.setAttribute('titleColor', titleColor);
     popupBox.setAttribute('textColor', textColor);
+    popupBox.setAttribute('borderRadius', borderRadius);
 
     popupImage.style.display = "none";
     popupIcon.style.display = "none";
@@ -211,7 +216,7 @@ function popup(title, text, icon, image, options) {
     }
 
 
-    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + '!important;';
+    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + '!important;' + 'border-radius: ' + borderRadius + '!important;';
 
     if (width !== null) popupBoxStyle += ' width: ' + width + ' !important;';
     if (height !== null) popupBoxStyle += ' height: ' + height + ' !important;';

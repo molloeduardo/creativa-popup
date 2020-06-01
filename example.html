@@ -88,6 +88,12 @@
                 <button onclick="popup13()">Open popups</button>
             </div>
 
+            <div class="group">
+                <h1>Popup with custom border radius</h1>
+                <p>Popup with title and text and custom border radius.</p>
+                <button onclick="popup14()">Open popup</button>
+            </div>
+
         </div>
 
     </body>
@@ -150,6 +156,10 @@
         popup('Title', 'This popup has title and text with different colors.', '', '', { titleColor: '#ff0000', textColor: '#00ff00' });
     }
 
+    function popup14() {
+        popup('Title', 'This popup has a custom border radius.', '', '', { borderRadius: '15px' });
+    }
+
 </script>
 
 <style>
@@ -169,22 +179,26 @@
     }
 
     .group {
+        width: 300px;
+        height: 200px;
         float: left;
         margin-left: 40px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     h1 {
-        font-weight: 20px;
+        font-size: 30px;
         font-weight: 500;
         margin: 0;
-        color: #505050;
+        margin-bottom: 10px;
+        color: #404040;
     }
 
     p {
         margin-top: 3px;
         margin-bottom: 16px;
         color: #555;
+        line-height: 24px;
     }
 
     button {
