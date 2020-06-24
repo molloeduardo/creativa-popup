@@ -18,6 +18,8 @@ You can open multiple popups one over another.
 ## Examples
 You can download the archive from GitHub and try the **example.html** file.
 Or you can go here: https://creativajs.altervista.org/popup/example.html
+## Slow loading icons
+The reason why the icons are loading too slow is that they are loaded from an external CDN. You can open the JavaScript file and replace that CDN link with your own local folder and put the icons inside it, so they will be loaded from your local storage.
 ## Syntax
 ```
 popup('title', 'text', 'icon', 'image', options);
@@ -31,7 +33,6 @@ This parameter defines the popup icon that will be on top of the box. You can us
 - info
 - success
 - error
-
 ...or you can put your own URL to the image of the icon (png, jpg, gif).
 - ### Image
 Here you can write the URL of an image that will be shown inside the popup.
@@ -101,6 +102,14 @@ popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', te
 - **Border radius:** you can change the popup border radius by adding a simple option.
 ```
 popup('Title', 'Text', 'icon', 'image', { borderRadius: '20px' }
+```
+-**Custom font:** you can change the font for the popup box.
+```
+popup('Title', 'Text', 'icon', 'image', { fontFamily: 'Times New Roman' }
+```
+- **Close button:** by default the popup has a red close button on the top right, but you can hide it.
+```
+popup('Title', 'Text', 'icon', 'image', { closeButton: false }
 ```
 ## Conclusions
 Of course you can use every option you want and mix them together.

@@ -94,6 +94,18 @@
                 <button onclick="popup14()">Open popup</button>
             </div>
 
+            <div class="group">
+                <h1>Popup with custom font</h1>
+                <p>Popup with title and text with custom font.</p>
+                <button onclick="popup15()">Open popup</button>
+            </div>
+
+            <div class="group">
+                <h1>Popup without close button</h1>
+                <p>Popup with title, text and without close button.</p>
+                <button onclick="popup16()">Open popup</button>
+            </div>
+
         </div>
 
     </body>
@@ -157,7 +169,15 @@
     }
 
     function popup14() {
-        popup('Title', 'This popup has a custom border radius.', '', '', { borderRadius: '15px' });
+        popup('Title', 'This popup has a custom border radius.', '', '', { borderRadius: '15px', closeButton: true });
+    }
+
+    function popup15() {
+        popup('Title', 'This popup has a custom font.', '', '', { fontFamily: 'Times New Roman' });
+    }
+
+    function popup16() {
+        popup('Title', 'This popup has no close button.', '', '', { closeButton: false });
     }
 
 </script>

@@ -32,6 +32,22 @@
     transition-duration: 3s;
 }
 
+.ct-popup-close-icon {
+    background-size: cover;
+    background-position: center center;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: -7px;
+    top: -7px;
+    transition: opacity 0.15s;
+} .ct-popup-close-icon:hover {
+    cursor: pointer;
+    opacity: 0.9;
+} .ct-popup-close-icon:active {
+    opacity: 0.8;
+}
+
 .ct-popup-show {
     opacity: 1;
 }

@@ -23,7 +23,7 @@ let totalPopups = 0;
 let thereIsContent = false;
 let content;
 let isPage;
-let openAnimation, closeAnimation, position, bgColor, titleColor, textColor, borderRadius;
+let openAnimation, closeAnimation, position, bgColor, titleColor, textColor, borderRadius, fontFamily;
 let isBlocked = false;
 let width = '', height = '';
 let positionBottom = window.innerHeight - 100;
@@ -58,7 +58,7 @@ function popup(title, text, icon, image, options) {
     // Popup background creation
     var divBackground = document.createElement('div');
     divBackground.className = 'ct-popup-background';
-    divBackground.id = 'popup-bg-' + totalPopups;
+    divBackground.id = 'ct-popup-bg-' + totalPopups;
     divBackground.onclick = function () {
         closePopup(totalPopups, options);
     };
@@ -66,26 +66,28 @@ function popup(title, text, icon, image, options) {
     // Popup box creation
     var divBox = document.createElement('div');
     divBox.className = 'ct-popup-box';
-    divBox.id = 'popup-box-' + totalPopups;
-    divBox.innerHTML = `<span class="ct-popup-image" id="popup-image-` + totalPopups + `"></span>
-                        <div class="ct-popup-content" id="popup-content-` + totalPopups + `">
-                            <span class="ct-popup-icon" id="popup-icon-` + totalPopups + `"></span>
-                            <h1 class="ct-popup-title" id="popup-title-` + totalPopups + `"></h1>
-                            <p class="ct-popup-text" id="popup-text-` + totalPopups + `"></p>
-                            <div class="ct-popup-options" id="popup-options-` + totalPopups + `"></div>
-                        </div>`;
+    divBox.id = 'ct-popup-box-' + totalPopups;
+    divBox.innerHTML = `<span class="ct-popup-image" id="ct-popup-image-` + totalPopups + `"></span>
+                        <div class="ct-popup-content" id="ct-popup-content-` + totalPopups + `">
+                            <span class="ct-popup-icon" id="ct-popup-icon-` + totalPopups + `"></span>
+                            <h1 class="ct-popup-title" id="ct-popup-title-` + totalPopups + `"></h1>
+                            <p class="ct-popup-text" id="ct-popup-text-` + totalPopups + `"></p>
+                            <div class="ct-popup-options" id="ct-popup-options-` + totalPopups + `"></div>
+                        </div>
+                        <div class="ct-popup-close-icon" id="ct-popup-close-icon-` + totalPopups + `" style="background-image: url(` + cdn + 'icons/close.png' + `);" onclick="closePopup(` + totalPopups + `)"></div>`;
 
     // Append popup to page
     document.body.appendChild(divBackground);
     document.body.appendChild(divBox);
 
     // Popup components
-    let popupBg = document.getElementById('popup-bg-' + totalPopups);
-    let popupBox = document.getElementById('popup-box-' + totalPopups);
-    let popupImage = document.getElementById('popup-image-' + totalPopups);
-    let popupIcon = document.getElementById('popup-icon-' + totalPopups);
-    let popupTitle = document.getElementById('popup-title-' + totalPopups);
-    let popupText = document.getElementById('popup-text-' + totalPopups);
+    let popupBg = document.getElementById('ct-popup-bg-' + totalPopups);
+    let popupBox = document.getElementById('ct-popup-box-' + totalPopups);
+    let popupImage = document.getElementById('ct-popup-image-' + totalPopups);
+    let popupIcon = document.getElementById('ct-popup-icon-' + totalPopups);
+    let popupTitle = document.getElementById('ct-popup-title-' + totalPopups);
+    let popupText = document.getElementById('ct-popup-text-' + totalPopups);
+    let popupCloseIcon = document.getElementById('ct-popup-close-icon-' + totalPopups);
 
     if (typeof options !== 'undefined' && options !== null && options !== '') {
         content = options['content'];
@@ -101,6 +103,8 @@ function popup(title, text, icon, image, options) {
         titleColor = options['titleColor'];
         textColor = options['textColor'];
         borderRadius = options['borderRadius'];
+        fontFamily = options['fontFamily'];
+        closeButton = options['closeButton'];
     } else {
 
         // Default values
@@ -117,6 +121,8 @@ function popup(title, text, icon, image, options) {
         titleColor = '#404040';
         textColor = '#606060';
         borderRadius = '3px';
+        fontFamily = 'sans-serif';
+        closeButton = true;
 
     }
 
@@ -127,6 +133,8 @@ function popup(title, text, icon, image, options) {
     if (typeof titleColor == 'undefined') titleColor = '#404040';
     if (typeof textColor == 'undefined') textColor = '#606060';
     if (typeof borderRadius == 'undefined') borderRadius = '3px';
+    if (typeof fontFamily == 'undefined') fontFamily = 'sans-serif';
+    if (typeof closeButton == 'undefined') closeButton = true;
 
     popupBg.setAttribute('isBlocked', isBlocked);
     popupBox.setAttribute('openAnimation', openAnimation);
@@ -136,6 +144,13 @@ function popup(title, text, icon, image, options) {
     popupBox.setAttribute('titleColor', titleColor);
     popupBox.setAttribute('textColor', textColor);
     popupBox.setAttribute('borderRadius', borderRadius);
+    popupBox.setAttribute('fontFamily', fontFamily);
+    popupBox.setAttribute('closeButton', closeButton);
+
+    // Close button
+    if (popupBox.getAttribute('closeButton') == 'false' || popupBg.getAttribute('isBlocked') == 'true') {
+        popupCloseIcon.setAttribute('style', 'display: none;');
+    }
 
     popupImage.style.display = "none";
     popupIcon.style.display = "none";
@@ -182,7 +197,7 @@ function popup(title, text, icon, image, options) {
     popupTitle.innerHTML = title;
     popupText.innerHTML = text;
 
-    let popupoptions = document.getElementById('popup-options-' + totalPopups);
+    let popupoptions = document.getElementById('ct-popup-options-' + totalPopups);
     if (typeof content == 'undefined' || content == null || content == '') {
         popupoptions.style.marginTop = '0';
         popupoptions.style.innerHtml = '';
@@ -216,7 +231,7 @@ function popup(title, text, icon, image, options) {
     }
 
 
-    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + '!important;' + 'border-radius: ' + borderRadius + '!important;';
+    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + ' !important;' + 'border-radius: ' + popupBox.getAttribute('borderRadius') + ' !important; font-family: ' + popupBox.getAttribute('fontFamily') + ' !important;';
 
     if (width !== null) popupBoxStyle += ' width: ' + width + ' !important;';
     if (height !== null) popupBoxStyle += ' height: ' + height + ' !important;';
@@ -230,8 +245,8 @@ function popup(title, text, icon, image, options) {
 
 // Close popup function
 function closePopup(id, options) {
-    let selectedPopupBg = document.getElementById('popup-bg-' + id);
-    let selectedPopupBox = document.getElementById('popup-box-' + id);
+    let selectedPopupBg = document.getElementById('ct-popup-bg-' + id);
+    let selectedPopupBox = document.getElementById('ct-popup-box-' + id);
 
     let isSelectedPopupBlocked = (selectedPopupBg.getAttribute('isBlocked') == "true");
     if (!isSelectedPopupBlocked) {
