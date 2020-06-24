@@ -103,7 +103,7 @@ popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', te
 ```
 popup('Title', 'Text', 'icon', 'image', { borderRadius: '20px' }
 ```
--**Custom font:** you can change the font for the popup box.
+- **Custom font:** you can change the font for the popup box.
 ```
 popup('Title', 'Text', 'icon', 'image', { fontFamily: 'Times New Roman' }
 ```
