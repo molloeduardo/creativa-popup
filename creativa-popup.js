@@ -34,7 +34,7 @@ window.onload = function() {
     var link  = document.createElement('link');
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = './creativa-popup.css';
+    link.href = cdn + 'creativa-popup.css';
     link.media = 'all';
     head.appendChild(link);
 }

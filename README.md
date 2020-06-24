@@ -18,8 +18,8 @@ You can open multiple popups one over another.
 ## Examples
 You can download the archive from GitHub and try the **example.html** file.
 Or you can go here: https://creativajs.altervista.org/popup/example.html
-## Slow loading icons
-The reason why the icons are loading too slow is that they are loaded from an external CDN. You can open the JavaScript file and replace that CDN link with your own local folder and put the icons inside it, so they will be loaded from your local storage.
+## Slow loading icons and CSS
+The reason why the icons are loading too slow is that they are loaded from an external CDN. You can open the JavaScript file and replace that CDN link with your own local folder and put the icons inside it, so they will be loaded from your local storage. The same thing has to be done for the CSS file.
 ## Syntax
 ```
 popup('title', 'text', 'icon', 'image', options);
