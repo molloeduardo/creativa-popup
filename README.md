@@ -117,7 +117,7 @@ popup('Title', 'Text', 'icon', 'image', { closeButton: false }
 ```
 popup('Title', 'Text', 'icon', 'image', { noBackground: true }
 ```
-- ** Timer: ** you can set a timer (in seconds) and the popup will close in that time.
+- **Timer:** you can set a timer (in seconds) and the popup will close in that time.
 ```
 popup('Title', 'Text', 'icon', 'image', { timer: 3 }
 ```
