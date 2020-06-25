@@ -80,7 +80,7 @@ function popup(title, text, icon, image, options) {
                             <p class="ct-popup-text" id="ct-popup-text-` + totalPopups + `"></p>
                             <div class="ct-popup-options" id="ct-popup-options-` + totalPopups + `"></div>
                         </div>
-                        <div class="ct-popup-close-icon" id="ct-popup-close-icon-` + totalPopups + `" style="background-image: url(` + cdn + 'icons/close.png' + `);" onclick="closePopup(` + totalPopups + `)"></div>`;
+                        <div class="ct-popup-close-icon" id="ct-popup-close-icon-` + totalPopups + `" onclick="closePopup(` + totalPopups + `)"><div class="ct-popup-close-icon-line-first"><div class="ct-popup-close-icon-line-second"></div></div></div>`;
 
     // Append popup to page
     document.body.appendChild(divBackground);
@@ -276,7 +276,7 @@ function closePopup(id, options) {
     } else {
        isSelectedPopupBlocked = false;
     }
-    
+
     if (!isSelectedPopupBlocked) {
 
         selectedPopupBg.classList.add('fade-ct-popup-animation-close');

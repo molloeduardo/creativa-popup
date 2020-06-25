@@ -33,19 +33,37 @@
 }
 
 .ct-popup-close-icon {
-    background-size: cover;
-    background-position: center center;
     width: 18px;
     height: 18px;
     position: absolute;
     right: -7px;
     top: -7px;
-    transition: opacity 0.15s;
+    border-radius: 50%;
+    background-color: #ff4d4d;
+    transition: background 0.15s;
 } .ct-popup-close-icon:hover {
     cursor: pointer;
-    opacity: 0.9;
+    background-color: #e60000;
 } .ct-popup-close-icon:active {
-    opacity: 0.8;
+    background-color: #cc0000;
+}
+
+.ct-popup-close-icon-line-first, .ct-popup-close-icon-line-second {
+    height: 10px;
+    width: 2px;
+    background-color: white;
+}
+
+.ct-popup-close-icon-line-first {
+    margin-left: 8px;
+    margin-top: 4px;
+    transform: rotate(45deg);
+    Z-index: 1;
+}
+
+.ct-popup-close-icon-line-second {
+    transform: rotate(90deg);
+    Z-index: 2;
 }
 
 .ct-popup-show {
