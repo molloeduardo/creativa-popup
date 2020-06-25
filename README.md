@@ -35,7 +35,8 @@ This parameter defines the popup icon that will be on top of the box. You can us
 - info
 - success
 - error
-...or you can put your own URL to the image of the icon (png, jpg, gif).
+
+...or you can put your own URL (or local path) to the image of the icon (png, jpg, gif).
 - ### Image
 Here you can write the URL of an image that will be shown inside the popup.
 - ### Options
