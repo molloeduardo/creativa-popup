@@ -113,5 +113,13 @@ popup('Title', 'Text', 'icon', 'image', { fontFamily: 'Times New Roman' }
 ```
 popup('Title', 'Text', 'icon', 'image', { closeButton: false }
 ```
+- **No Background:** you can remove the backgrdoun panel with this simple option.
+```
+popup('Title', 'Text', 'icon', 'image', { noBackground: true }
+```
+- ** Timer: ** you can set a timer (in seconds) and the popup will close in that time.
+```
+popup('Title', 'Text', 'icon', 'image', { timer: 3 }
+```
 ## Conclusions
 Of course you can use every option you want and mix them together.

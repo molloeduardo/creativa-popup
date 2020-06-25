@@ -1,7 +1,7 @@
 <html>
 
     <head>
-        <script src="https://creativajs.altervista.org/popup/creativa-popup.js" type="text/javascript"></script>
+        <script src="creativa-popup.js" type="text/javascript"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Creativa - Popup</title>
     </head>
@@ -106,6 +106,18 @@
                 <button onclick="popup16()">Open popup</button>
             </div>
 
+            <div class="group">
+                <h1>Popup without background</h1>
+                <p>Popup with title, text and without background.</p>
+                <button onclick="popup17()">Open popup</button>
+            </div>
+
+            <div class="group">
+                <h1>Popup with auto-close timer</h1>
+                <p>Popup with title and text. It will close in 3 seconds.</p>
+                <button onclick="popup18()">Open popup</button>
+            </div>
+
         </div>
 
     </body>
@@ -178,6 +190,14 @@
 
     function popup16() {
         popup('Title', 'This popup has no close button.', '', '', { closeButton: false });
+    }
+
+    function popup17() {
+        popup('Title', 'This popup has no background.', '', '', { noBackground: true });
+    }
+
+    function popup18() {
+        popup('Title', 'This popup will close after 3 seconds.', '', '', { timer: 3, closeAnimation: 'card-right' });
     }
 
 </script>

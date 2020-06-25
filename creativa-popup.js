@@ -23,7 +23,7 @@ let totalPopups = 0;
 let thereIsContent = false;
 let content;
 let isPage;
-let openAnimation, closeAnimation, position, bgColor, titleColor, textColor, borderRadius, fontFamily;
+let openAnimation, closeAnimation, position, bgColor, titleColor, textColor, borderRadius, fontFamily, noBackground, timer;
 let isBlocked = false;
 let width = '', height = '';
 let positionBottom = window.innerHeight - 100;
@@ -48,6 +48,12 @@ window.onresize = function(event) {
             element.style.top = positionBottom + 'px';
         }
     }
+}
+
+function timerClose(popupId, timerTime) {
+    setTimeout(function() {
+        closePopup(popupId);
+    }, timerTime * 1000);
 }
 
 // Open popup function
@@ -105,6 +111,8 @@ function popup(title, text, icon, image, options) {
         borderRadius = options['borderRadius'];
         fontFamily = options['fontFamily'];
         closeButton = options['closeButton'];
+        noBackground = options['noBackground'];
+        timer = options['timer'];
     } else {
 
         // Default values
@@ -123,6 +131,8 @@ function popup(title, text, icon, image, options) {
         borderRadius = '3px';
         fontFamily = 'sans-serif';
         closeButton = true;
+        noBackground = false;
+        timer = false;
 
     }
 
@@ -135,6 +145,8 @@ function popup(title, text, icon, image, options) {
     if (typeof borderRadius == 'undefined') borderRadius = '3px';
     if (typeof fontFamily == 'undefined') fontFamily = 'sans-serif';
     if (typeof closeButton == 'undefined') closeButton = true;
+    if (typeof noBackground == 'undefined') noBackground = false;
+    if (typeof timer == 'undefined') timer = false;
 
     popupBg.setAttribute('isBlocked', isBlocked);
     popupBox.setAttribute('openAnimation', openAnimation);
@@ -146,10 +158,20 @@ function popup(title, text, icon, image, options) {
     popupBox.setAttribute('borderRadius', borderRadius);
     popupBox.setAttribute('fontFamily', fontFamily);
     popupBox.setAttribute('closeButton', closeButton);
+    popupBox.setAttribute('noBackground', noBackground);
+    
+    if (timer !== false && timer > 0) {
+        timerClose(totalPopups, timer);
+    }
 
     // Close button
     if (popupBox.getAttribute('closeButton') == 'false' || popupBg.getAttribute('isBlocked') == 'true') {
         popupCloseIcon.setAttribute('style', 'display: none;');
+    }
+
+    // No background
+    if (popupBox.getAttribute('noBackground') == 'true') {
+        popupBg.setAttribute('style', 'display: none;');
     }
 
     popupImage.style.display = "none";
@@ -248,7 +270,13 @@ function closePopup(id, options) {
     let selectedPopupBg = document.getElementById('ct-popup-bg-' + id);
     let selectedPopupBox = document.getElementById('ct-popup-box-' + id);
 
-    let isSelectedPopupBlocked = (selectedPopupBg.getAttribute('isBlocked') == "true");
+    let isSelectedPopupBlocked
+    if (selectedPopupBg !== null) {
+        isSelectedPopupBlocked = (selectedPopupBg.getAttribute('isBlocked') == "true");
+    } else {
+       isSelectedPopupBlocked = false;
+    }
+    
     if (!isSelectedPopupBlocked) {
 
         selectedPopupBg.classList.add('fade-ct-popup-animation-close');
