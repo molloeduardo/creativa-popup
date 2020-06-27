@@ -89,6 +89,7 @@
 
 .ct-popup-content {
     padding: 17px 17px;
+    padding-bottom: 19px;
 }
 
 .ct-popup-icon {
@@ -271,6 +272,50 @@
 @keyframes unfold-ct-popup-animation-close {
     from { opacity: 1; transform: translate(-50%, -50%) rotateY(0deg); }
     to { opacity: 0; transform-style: preserve-3d; transform: translate(-50%, -50%) rotateY(-60deg); }
+}
+
+.card-bottom-ct-popup-animation-open {
+    animation-name: card-bottom-ct-popup-animation-open;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-bottom-ct-popup-animation-open {
+    from { opacity: 0; margin-top: 20px; }
+    to { opacity: 1; margin-top: 0; }
+}
+
+.card-bottom-ct-popup-animation-close {
+    animation-name: card-bottom-ct-popup-animation-close;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-bottom-ct-popup-animation-close {
+    from { opacity: 1; margin-top: 0px; }
+    to { opacity: 0; margin-top: 20px; }
+}
+
+.card-top-ct-popup-animation-open {
+    animation-name: card-top-ct-popup-animation-open;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-top-ct-popup-animation-open {
+    from { opacity: 0; margin-top: -20px; }
+    to { opacity: 1; margin-top: 0; }
+}
+
+.card-top-ct-popup-animation-close {
+    animation-name: card-top-ct-popup-animation-close;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes card-top-ct-popup-animation-close {
+    from { opacity: 1; margin-top: 0px; }
+    to { opacity: 0; margin-top: -20px; }
 }
 
 /* ----------------------------
