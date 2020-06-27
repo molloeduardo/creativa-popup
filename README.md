@@ -58,6 +58,8 @@ popup('Title', 'Text', 'icon', 'image', { isBlocked: true }
   - bubble
   - card-left
   - card-right
+  - card-bottom
+  - card-top
   - newspaper
   - unfold
 ```
