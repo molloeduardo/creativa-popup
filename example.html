@@ -118,6 +118,12 @@
                 <button onclick="popup18()">Open popup</button>
             </div>
 
+            <div class="group">
+                <h1>Popup with custom speed animation</h1>
+                <p>Popup with title, text and custom speed animation.</p>
+                <button onclick="popup19()">Open popup</button>
+            </div>
+
         </div>
 
     </body>
@@ -198,6 +204,10 @@
 
     function popup18() {
         popup('Title', 'This popup will close after 3 seconds.', '', '', { timer: 3, closeAnimation: 'card-right' });
+    }
+
+    function popup19() {
+        popup('Title', 'This popup has a custom speed animation.', '', '', { openAnimation: 'card-top', closeAnimation: 'card-bottom', animationSpeed: 400 });
     }
 
 </script>

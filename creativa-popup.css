@@ -89,7 +89,7 @@
 
 .ct-popup-content {
     padding: 17px 17px;
-    padding-bottom: 19px;
+    padding-bottom: 18px;
 }
 
 .ct-popup-icon {
@@ -276,7 +276,7 @@
 
 .card-bottom-ct-popup-animation-open {
     animation-name: card-bottom-ct-popup-animation-open;
-    animation-duration: 0.3s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -287,7 +287,7 @@
 
 .card-bottom-ct-popup-animation-close {
     animation-name: card-bottom-ct-popup-animation-close;
-    animation-duration: 0.3s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -298,7 +298,7 @@
 
 .card-top-ct-popup-animation-open {
     animation-name: card-top-ct-popup-animation-open;
-    animation-duration: 0.3s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 
@@ -309,7 +309,7 @@
 
 .card-top-ct-popup-animation-close {
     animation-name: card-top-ct-popup-animation-close;
-    animation-duration: 0.3s;
+    animation-duration: 0.15s;
     animation-fill-mode: forwards;
 }
 

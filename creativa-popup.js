@@ -18,12 +18,11 @@ function loadContent(target, url) {
 
 const version = '0.1';
 const cdn = 'https://creativajs.altervista.org/popup/';
-const animationSpeed = 150;
 let totalPopups = 0;
 let thereIsContent = false;
 let content;
 let isPage;
-let openAnimation, closeAnimation, position, bgColor, titleColor, textColor, borderRadius, fontFamily, noBackground, timer;
+let openAnimation, closeAnimation, position, bgColor, titleColor, textColor, borderRadius, fontFamily, noBackground, timer, animationSpeed;
 let isBlocked = false;
 let width = '', height = '';
 let positionBottom = window.innerHeight - 100;
@@ -113,6 +112,7 @@ function popup(title, text, icon, image, options) {
         closeButton = options['closeButton'];
         noBackground = options['noBackground'];
         timer = options['timer'];
+        animationSpeed = options['animationSpeed'];
     } else {
 
         // Default values
@@ -133,6 +133,7 @@ function popup(title, text, icon, image, options) {
         closeButton = true;
         noBackground = false;
         timer = false;
+        animationSpeed = 150;
 
     }
 
@@ -147,6 +148,7 @@ function popup(title, text, icon, image, options) {
     if (typeof closeButton == 'undefined') closeButton = true;
     if (typeof noBackground == 'undefined') noBackground = false;
     if (typeof timer == 'undefined') timer = false;
+    if (typeof animationSpeed == 'undefined') animationSpeed = 150;
 
     popupBg.setAttribute('isBlocked', isBlocked);
     popupBox.setAttribute('openAnimation', openAnimation);
@@ -159,6 +161,7 @@ function popup(title, text, icon, image, options) {
     popupBox.setAttribute('fontFamily', fontFamily);
     popupBox.setAttribute('closeButton', closeButton);
     popupBox.setAttribute('noBackground', noBackground);
+    popupBox.setAttribute('animationSpeed', animationSpeed);
     
     if (timer !== false && timer > 0) {
         timerClose(totalPopups, timer);
@@ -237,6 +240,7 @@ function popup(title, text, icon, image, options) {
     let zIndexFirst = 100 + totalPopups + 1;
     let zIndexSecond = 100 + totalPopups + 2;
     popupBg.style.zIndex = zIndexFirst.toString();
+    popupBg.style.animationDuration = parseInt(popupBox.getAttribute('animationSpeed')) / 1000 + 's';
     popupBg.classList.add('ct-popup-show');
     popupBg.classList.add('fade-ct-popup-animation-open');
 
@@ -253,7 +257,7 @@ function popup(title, text, icon, image, options) {
     }
 
 
-    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + ' !important;' + 'border-radius: ' + popupBox.getAttribute('borderRadius') + ' !important; font-family: ' + popupBox.getAttribute('fontFamily') + ' !important;';
+    let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + ' !important;' + 'border-radius: ' + popupBox.getAttribute('borderRadius') + ' !important; font-family: ' + popupBox.getAttribute('fontFamily') + ' !important; animation-duration: ' + parseInt(popupBox.getAttribute('animationSpeed')) / 1000 + 's !important; ';
 
     if (width !== null) popupBoxStyle += ' width: ' + width + ' !important;';
     if (height !== null) popupBoxStyle += ' height: ' + height + ' !important;';
