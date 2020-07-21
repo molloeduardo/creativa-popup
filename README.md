@@ -17,6 +17,7 @@ You can open multiple popups one over another.
 - Firefox
 - Microsoft Edge
 - Safari
+It doesn't work with the old Internet Explorer.
 ## Examples
 You can download the archive from GitHub and try the **example.html** file.
 Or you can go here: https://creativajs.altervista.org/popup/example.html
