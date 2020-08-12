@@ -231,7 +231,11 @@ function popup(title, text, icon, image, options) {
             if (!isPage) {
                 popupoptions.innerHTML = content;
             } else {
-                loadContent(popupoptions, content);
+                if (window.jQuery) {  
+                	$(popupoptions).load(content);
+               	} else {
+                	loadContent(popupoptions, content);
+                }
             }
             if (popupTitle.innerHTML !== '' && popupText.innerHTML !== '' && popupTitle !== null && popupText !== null) popupoptions.style.marginTop = '10px';
         }
