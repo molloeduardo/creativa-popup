@@ -272,10 +272,10 @@ function popup(title, text, icon, image, options) {
     popupTitle.setAttribute('style', 'color: ' + popupBox.getAttribute('titleColor') + ' !important');
     popupText.setAttribute('style', 'color: ' + popupBox.getAttribute('textColor') + ' !important');
 
-    popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 150) + 'px !important;');
+    popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 170) + 'px !important;');
 
     window.addEventListener('resize', function() {
-        popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 150) + 'px !important;');
+        popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 170) + 'px !important;');
     });
 
 }
