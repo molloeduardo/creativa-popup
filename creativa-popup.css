@@ -20,6 +20,7 @@
     opacity: 0;
     width: fit-content;
     width: -moz-fit-content;
+    max-height: 90%;
     background: #fff;
     position: fixed;
     top: 50%;
@@ -90,6 +91,7 @@
 .ct-popup-content {
     padding: 17px 17px;
     padding-bottom: 18px;
+    overflow: auto;
 }
 
 .ct-popup-icon {
@@ -123,17 +125,6 @@
 .ct-popup-text b {
     color: #222;
     font-weight: 600;
-}
-
-.ct-popup-elements {
-    overflow: hidden;
-    width: fit-content;
-    max-width: 100%;
-    margin: auto;
-}
-
-.ct-popup-elements * {
-    float: left;
 }
 
 /* ----------------------------

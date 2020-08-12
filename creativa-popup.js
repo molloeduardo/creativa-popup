@@ -3,6 +3,7 @@ function loadContent(target, url) {
     var request = new XMLHttpRequest();
     request.open('GET', url, true);
     request.onload = function() {
+        console.log(target);
     if (request.status >= 200 && request.status < 400) {
         var resp = request.responseText;
 
@@ -93,6 +94,7 @@ function popup(title, text, icon, image, options) {
     let popupTitle = document.getElementById('ct-popup-title-' + totalPopups);
     let popupText = document.getElementById('ct-popup-text-' + totalPopups);
     let popupCloseIcon = document.getElementById('ct-popup-close-icon-' + totalPopups);
+    let popupOptionsContent = document.getElementById('ct-popup-options-' + totalPopups);
 
     if (typeof options !== 'undefined' && options !== null && options !== '') {
         content = options['content'];
@@ -260,7 +262,6 @@ function popup(title, text, icon, image, options) {
 
     }
 
-
     let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + ' !important;' + 'border-radius: ' + popupBox.getAttribute('borderRadius') + ' !important; font-family: ' + popupBox.getAttribute('fontFamily') + ' !important; animation-duration: ' + parseInt(popupBox.getAttribute('animationSpeed')) / 1000 + 's !important; ';
 
     if (width !== null) popupBoxStyle += ' width: ' + width + ' !important;';
@@ -270,6 +271,12 @@ function popup(title, text, icon, image, options) {
     popupBox.setAttribute('style', popupBoxStyle);
     popupTitle.setAttribute('style', 'color: ' + popupBox.getAttribute('titleColor') + ' !important');
     popupText.setAttribute('style', 'color: ' + popupBox.getAttribute('textColor') + ' !important');
+
+    popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 150) + 'px !important;');
+
+    window.addEventListener('resize', function() {
+        popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 150) + 'px !important;');
+    });
 
 }
 
