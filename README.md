@@ -131,6 +131,6 @@ popup('Title', 'Text', 'icon', 'image', { noBackground: true }
 popup('Title', 'Text', 'icon', 'image', { timer: 3 }
 ```
 - ### Closing function
-If you want to close a specific popup you can call the function **closePopup(N)** where N is the ID of the popup.
+If you want to close a specific popup you can call the function **closePopup(N)** where N is the popup ID.
 ## Conclusions
 Of course you can use every option you want and mix them together.
