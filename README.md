@@ -7,7 +7,7 @@ You can import the JS file in two ways:
 ## Where is the CSS?
 The CSS will be automatically included from the **creativa-popup.js** file inside the HTML head. If this not happens or you want to use it locally, just import and use the CSS file too.
 ## Customizable
-Everything aspect of the popup is customizable.
+Every aspect of the popup is customizable.
 ## Responsive
 The popup will adapt to every screen.
 ## Multiple popups
