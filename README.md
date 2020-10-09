@@ -54,7 +54,7 @@ popup('Title', 'Text', 'icon', 'image', { content: 'another-page.html', isPage: 
 ```
 - **Unclosable popup:** you can specify this parameter to avoid the popup to close.
 ```
-popup('Title', 'Text', 'icon', 'image', { isBlocked: true }
+popup('Title', 'Text', 'icon', 'image', { isBlocked: true });
 ```
 - **Open/close animations:** the default open/close animation for the popup is the **fade** but you can set other default animations:
   - bubble
@@ -70,7 +70,7 @@ popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnima
 ... or you can create your own animation inside your CSS file. Just give a name to the animation an then add *-ct-popup-animation-open* or *-ct-popup-animation-close* at the end of the class name. For example, if my animation is called **dragon** I'll create the CSS animations with these names: **dragon-ct-popup-animation-open** and **dragon-ct-popup-animation-close** and inside the popup function I'll set the **dragon** string.
 - **Custom speed animation:** you can change the open/close speed animation by setting the time in milliseconds. The default value is 150.
 ```
-popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right', animationSpeed: 400 }
+popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right', animationSpeed: 400 });
 ```
 - **Custom size:** you can use different width and height for the popup.
 ```
