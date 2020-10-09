@@ -46,11 +46,11 @@ This is an object where you can specify other parameters to personalize the popu
 - **Content:** you can put a string that specify custom content for the poup (such as HTML, or other text) that will be shown under the text. In order to use this parameter you have to specify another parameter: **isPage**: this is a boolean that says if the content is text content or it is an URL to another page that will be loaded as content inside the popup.
 ```
 // Including text content
-popup('Title', 'Text', 'icon', 'image', { content: '<button>Test</button>', isPage: false }
+popup('Title', 'Text', 'icon', 'image', { content: '<button>Test</button>', isPage: false });
 
 // Including content from another page
 // This function might not work with Safari Browser due to Cross Origin problem; try to use HTTPS.
-popup('Title', 'Text', 'icon', 'image', { content: 'another-page.html', isPage: true }
+popup('Title', 'Text', 'icon', 'image', { content: 'another-page.html', isPage: true });
 ```
 - **Unclosable popup:** you can specify this parameter to avoid the popup to close.
 ```
@@ -65,7 +65,7 @@ popup('Title', 'Text', 'icon', 'image', { isBlocked: true }
   - newspaper
   - unfold
 ```
-popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right' }
+popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnimation: 'card-right' });
 ```
 ... or you can create your own animation inside your CSS file. Just give a name to the animation an then add *-ct-popup-animation-open* or *-ct-popup-animation-close* at the end of the class name. For example, if my animation is called **dragon** I'll create the CSS animations with these names: **dragon-ct-popup-animation-open** and **dragon-ct-popup-animation-close** and inside the popup function I'll set the **dragon** string.
 - **Custom speed animation:** you can change the open/close speed animation by setting the time in milliseconds. The default value is 150.
@@ -74,61 +74,61 @@ popup('Title', 'Text', 'icon', 'image', { openAnimation: 'card-left', closeAnima
 ```
 - **Custom size:** you can use different width and height for the popup.
 ```
-popup('Title', 'Text', 'icon', 'image', { width: '300px', height: '400px' }
+popup('Title', 'Text', 'icon', 'image', { width: '300px', height: '400px' });
 ```
 This is CSS so you can use every type of unit of measure (px, %, em ecc...).
 - **Positioning:** you can set the position of the popup (top, bottom).
 ```
-popup('Title', 'Text', 'icon', 'image', { position: 'top' }
-popup('Title', 'Text', 'icon', 'image', { position: 'bottom' }
+popup('Title', 'Text', 'icon', 'image', { position: 'top' });
+popup('Title', 'Text', 'icon', 'image', { position: 'bottom' });
 ```
 - **Background color:** you can set the background color using HEX, RGB, RGBA codes.
 ```
 // Red background using HEX code
-popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff0000' }
+popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff0000' });
 
 // Red opaque background using HEX code with alpha
-popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff000055' }
+popup('Title', 'Text', 'icon', 'image', { bgColor: '#ff000055' });
 
 // Red background using RGB code.
-popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgb(255, 0, 0)' }
+popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgb(255, 0, 0)' });
 
 // Red opaque background using RGBA code.
-popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgba(255, 0, 0, 0.4)' }
+popup('Title', 'Text', 'icon', 'image', { bgColor: 'rgba(255, 0, 0, 0.4)' });
 ```
 - **Title/text color:** you can set the title and text color using HEX, RGB, RGBA codes.
 ```
 // Red title and text using HEX code
-popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff0000', textColor: '#ff0000' }
+popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff0000', textColor: '#ff0000' });
 
 // Red opaque title and text using HEX code with alpha
-popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff000055', textColor: '#ff000055' }
+popup('Title', 'Text', 'icon', 'image', { titleColor: '#ff000055', textColor: '#ff000055' });
 
 // Red title and text using RGB code.
-popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgb(255, 0, 0)', textColor: 'rgb(255, 255, 0)' }
+popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgb(255, 0, 0)', textColor: 'rgb(255, 255, 0)' });
 
 // Red opaque title and text using RGBA code.
-popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', textColor: 'rgba(255, 255, 0, 0.4)' }
+popup('Title', 'Text', 'icon', 'image', { titleColor: 'rgba(255, 0, 0, 0.4)', textColor: 'rgba(255, 255, 0, 0.4)' });
 ```
 - **Border radius:** you can change the popup border radius by adding a simple option.
 ```
-popup('Title', 'Text', 'icon', 'image', { borderRadius: '20px' }
+popup('Title', 'Text', 'icon', 'image', { borderRadius: '20px' });
 ```
 - **Custom font:** you can change the font for the popup box.
 ```
-popup('Title', 'Text', 'icon', 'image', { fontFamily: 'Times New Roman' }
+popup('Title', 'Text', 'icon', 'image', { fontFamily: 'Times New Roman' });
 ```
 - **Close button:** by default the popup has a red close button on the top right, but you can hide it.
 ```
-popup('Title', 'Text', 'icon', 'image', { closeButton: false }
+popup('Title', 'Text', 'icon', 'image', { closeButton: false });
 ```
 - **No Background:** you can remove the backgrdoun panel with this simple option.
 ```
-popup('Title', 'Text', 'icon', 'image', { noBackground: true }
+popup('Title', 'Text', 'icon', 'image', { noBackground: true });
 ```
 - **Timer:** you can set a timer (in seconds) and the popup will close in that time.
 ```
-popup('Title', 'Text', 'icon', 'image', { timer: 3 }
+popup('Title', 'Text', 'icon', 'image', { timer: 3 });
 ```
 - ### Closing function
 If you want to close a specific popup you can call the function **closePopup(N)** where N is the popup ID.
