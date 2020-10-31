@@ -39,6 +39,14 @@ window.onload = function() {
     head.appendChild(link);
 }
 
+document.onkeydown = function(evt) {
+    if (evt.key.toString().toLowerCase() === 'escape') {
+        if (totalPopups > 0) {
+            closePopup(totalPopups);
+        }
+    }
+};
+
 window.onresize = function(event) {
     let allPopups = this.document.getElementsByClassName('ct-popup-box');
     for (let i = 0; i < allPopups.length; i++) {
