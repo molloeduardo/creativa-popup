@@ -12,43 +12,43 @@
 
             <div class="group">
                 <h1>Simple popup</h1>
-                <p>Popup with title and text</p>
+                <p>Popup with title and text.</p>
                 <button onclick="popup1()">Open popup</button>
             </div>
 
             <div class="group">
                 <h1>Icon popup</h1>
-                <p>Popup with title, text and default icon</p>
+                <p>Popup with title, text and default icon.</p>
                 <button onclick="popup2()">Open popup</button>
             </div>
 
             <div class="group">
-                <h1>Personalized icon popup</h1>
-                <p>Popup with title, text and personalized icon</p>
+                <h1>Custom icon popup</h1>
+                <p>Popup with title, text and custom icon.</p>
                 <button onclick="popup3()">Open popup</button>
             </div>
 
             <div class="group">
                 <h1>Image popup</h1>
-                <p>Popup with title, text, icon and image</p>
+                <p>Popup with title, text, icon and image.</p>
                 <button onclick="popup4()">Open popup</button>
             </div>
 
             <div class="group">
                 <h1>Unclosable popup</h1>
-                <p>Popup with title and text that you can't close</p>
+                <p>Popup with title and text that you can't close.</p>
                 <button onclick="popup5()">Open popup</button>
             </div>
 
             <div class="group">
                 <h1>Popup with custom content</h1>
-                <p>Popup with only custom content</p>
+                <p>Popup with only custom content.</p>
                 <button onclick="popup6()">Open popup</button>
             </div>
 
             <div class="group">
                 <h1>Popup with external custom content</h1>
-                <p>Popup with only external custom content (from another page)</p>
+                <p>Popup with only external custom content (from another page).</p>
                 <button onclick="popup7()">Open popup</button>
             </div>
             
@@ -126,9 +126,6 @@
 
         </div>
 
-
-        <span>&#9432;</span>
-
     </body>
 
 </html>
@@ -136,81 +133,81 @@
 <script>
 
     function popup1() {
-        creativaPopup.create('Title', 'This is the text of the popup.');
+        CreativaPopup.create('This is the text of the popup.', 'Title');
     }
 
     function popup2() {
-        creativaPopup.create('Title', 'This is the text of the popup.', { icon: 'info' });
+        CreativaPopup.create('This is the text of the popup.', 'Title', 'info');
     }
 
     function popup3() {
-        creativaPopup.create('Title', 'This is the text of the popup.', { icon: 'fruit.png' });
+        CreativaPopup.create('This is the text of the popup.', 'Title', 'fruit.png');
     }
 
     function popup4() {
-        creativaPopup.create('Title', 'This is the text of the popup.', 'success', 'image.jpg');
+        CreativaPopup.create('This is the text of the popup.', 'Title', 'success', { image: 'image.jpg'});
     }
 
     function popup5() {
-        creativaPopup.create('Title', 'You can\'t close this popup.', '', '', { isBlocked: true });
+        CreativaPopup.create('You can\'t close this popup.', 'Title', '', { isBlocked: true });
     }
 
     function popup6() {
-        creativaPopup.create('', '', '', '', { content: 'This is custom content.', isPage: false });
+        CreativaPopup.create('', '', '', { content: '<i>This is <u>HTML</u> custom content.</i>' });
     }
 
     function popup7() {
-        creativaPopup.create('', '', '', '', { content: 'another-page.html', isPage: true });
+        CreativaPopup.create('', '', '', { content: 'another-page.html', isPage: true });
     }
 
     function popup8() {
-        creativaPopup.create('Title', 'This is the text of the popup.', 'info', '', { width: '400px', height: '400px' })
+        CreativaPopup.create('This is the text of the popup.', 'Title', 'info', { width: '400px', height: '400px' });
     }
 
     function popup9() {
-        creativaPopup.create('Title', 'This is the text of the popup.', 'info', '', { openAnimation: 'card-left', closeAnimation: 'card-right' })
+        CreativaPopup.create('This is the text of the popup.', 'Title', 'info', { openAnimation: 'card-left', closeAnimation: 'card-right' });
     }
 
     function popup10() {
-        creativaPopup.create('Title', 'This is the text of the popup.', '', '', { position: 'top', openAnimation: 'bubble', closeAnimation: 'bubble' });
+        CreativaPopup.create('This is the text of the popup.', 'Title', '', { position: 'top', openAnimation: 'bubble', closeAnimation: 'bubble' });
     } 
 
     function popup11() {
-        creativaPopup.create('Title', 'First popup.', '', '', { closeAnimation: 'bubble' });
-        creativaPopup.create('Title', 'Second popup.', '', '', { closeAnimation: 'card-left' });
-        creativaPopup.create('Title', 'Third popup.', '', '', { closeAnimation: 'card-right' });
+        CreativaPopup.create('First popup.', 'Title', '', { closeAnimation: 'bubble' });
+        CreativaPopup.create('Second popup.', 'Title', '', { closeAnimation: 'card-left' });
+        CreativaPopup.create('Third popup.', 'Title', '', { closeAnimation: 'card-right' });
     }
 
     function popup12() {
-        creativaPopup.create('Title', 'This popup has a different background color and opacity.', '', '', { bgColor: '#ff000044' })
+        CreativaPopup.create('This popup has a different background color.', 'Title', '', { bgColor: '#ff0000' });
     }
 
     function popup13() {
-        creativaPopup.create('Title', 'This popup has title and text with different colors.', '', '', { titleColor: '#ff0000', textColor: '#00ff00' });
+        CreativaPopup.create('This popup has title and text with different colors.', 'Title', '', { titleColor: '#ff0000', textColor: '#00ff00' });
     }
 
     function popup14() {
-        creativaPopup.create('Title', 'This popup has a custom border radius.', '', '', { borderRadius: '15px', closeButton: true });
+        CreativaPopup.create('This popup has a custom border radius.', 'Title', '', { borderRadius: '2px' });
     }
 
     function popup15() {
-        creativaPopup.create('Title', 'This popup has a custom font.', '', '', { fontFamily: 'Times New Roman' });
+        CreativaPopup.create('This popup has a custom font.', 'Title', '', { fontFamily: 'Times New Roman' });
     }
 
     function popup16() {
-        creativaPopup.create('Title', 'This popup has no close button.', '', '', { closeButton: false });
+        CreativaPopup.create('This popup has no close button.', 'Title', '', { closeButton: false });
     }
 
     function popup17() {
-        creativaPopup.create('Title', 'This popup has no background.', '', '', { noBackground: true });
+        CreativaPopup.create('This popup has no background.', 'Title', '', { noBackground: true });
     }
 
     function popup18() {
-        creativaPopup.create('Title', 'This popup will close after 3 seconds.', '', '', { timer: 3, closeAnimation: 'card-right' });
+        CreativaPopup.create('This popup will close after 3 seconds.', 'Title', '', { timer: 3, closeAnimation: 'card-right' });
     }
 
     function popup19() {
-        creativaPopup.create('Title', 'This popup has a custom speed animation.', '', '', { openAnimation: 'card-top', closeAnimation: 'card-bottom', animationSpeed: 400 });
+        CreativaPopup.create('This popup has a custom speed animation.', 'Title', '', { openAnimation: 'card-top', closeAnimation: 'card-bottom', animationSpeed: 400 });
     }
 
 </script>
@@ -221,7 +218,7 @@
         margin: 0;
         width: 100%;
         height: 100%;
-        padding: 15px;
+        padding: 30px;
         box-sizing: border-box;
         font-family: sans-serif;
     }
@@ -269,7 +266,7 @@
         background: #0055ff;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 800px) {
         .container {
             width: 100%;
         }

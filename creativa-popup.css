@@ -26,8 +26,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0px 6px 12px 2px #222;
-    border-radius: 3px;
     font-family: sans-serif;
     transition-property: width;
     transition-duration: 3s;
@@ -77,6 +75,11 @@
     background-position: center center;
 }
 
+.ct-popup-other-content {
+    height: 100%;
+    overflow: auto;
+}
+
 .ct-popup-image {
     width: calc(100% + 4px);
     height: 120px;
@@ -89,7 +92,7 @@
 }
 
 .ct-popup-content {
-    padding: 17px 17px;
+    padding: 19px 19px;
     overflow: auto;
 }
 
@@ -114,7 +117,7 @@
 
 .ct-popup-text {
     font-size: 15px !important;
-    color: #606060 !important;
+    color: #505050 !important;
 }
 
 .ct-popup-text h1, .ct-popup-text h2, .ct-popup-text h3, .ct-popup-text h4, .ct-popup-text h5, .ct-popup-text h6 {

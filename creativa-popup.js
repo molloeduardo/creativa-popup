@@ -1,12 +1,13 @@
 class CreativaPopup {
 
-    version = '0.1';
-    cdn = 'https://creativajs.altervista.org/popup/';
+    static version = '0.1';
+    static cdn = 'https://creativajs.altervista.org/popup/';
 
-    totalPopups = 0;
-    animationSpeed = 100;
+    static totalPopups = 0;
+    static animationSpeed = 150;
 
-    loadContent(target, url) {
+    static loadContent(popupId, url) {
+        let target = document.getElementById('ct-popup-other-content-' + popupId);
         let request = new XMLHttpRequest();
         request.open('GET', url, true);
         request.onload = function() {
@@ -18,52 +19,108 @@ class CreativaPopup {
         request.send();
     }
 
-    timerClose(popupId, timerTime) {
+    static closeAll() {
+        for (let i = CreativaPopup.totalPopups; i > 0; i--) {
+            if (!document.getElementById('ct-popup-box-' + i)) {
+                console.warn(`The popup with ID (${i}) does not exist.`);
+            } else {
+                CreativaPopup.closePopup(i);
+            }
+        }
+    }
+
+    static closePopup(popupId) {
+        let selectedPopupBg = document.getElementById('ct-popup-bg-' + popupId);
+        let selectedPopupBox = document.getElementById('ct-popup-box-' + popupId);
+    
+        // Check for blocked popup
+        let isSelectedPopupBlocked = false;
+        if (selectedPopupBg && (selectedPopupBg.getAttribute('isBlocked') == 'true')) {
+           isSelectedPopupBlocked = true;
+        }
+    
+        if (!isSelectedPopupBlocked) {
+            
+            selectedPopupBg.classList.add('fade-ct-popup-animation-close');
+            setTimeout(function() {
+                selectedPopupBg.remove();
+            }, CreativaPopup.animationSpeed);
+    
+            selectedPopupBox.classList.remove(selectedPopupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
+            selectedPopupBox.classList.add(selectedPopupBox.getAttribute('closeAnimation') + '-ct-popup-animation-close');
+    
+            setTimeout(function() {
+                selectedPopupBox.remove();
+            }, CreativaPopup.animationSpeed);
+            CreativaPopup.totalPopups --;
+        }
+    }
+
+    static timerClose(popupId, timerTime) {
         setTimeout(function() {
-            creativaPopup.closePopup(popupId);
+            CreativaPopup.closePopup(popupId);
         }, timerTime * 1000);
     }
 
-    create(title, text, options) {
-
-        this.totalPopups ++;
-        let popupId = this.totalPopups;
+    static create(text, title, icon, inputOptions) {
+        
+        // Instance and popup ID
+        CreativaPopup.totalPopups ++;
+        let popupId = CreativaPopup.totalPopups;
     
         // Popup background creation
         var divBackground = document.createElement('div');
         divBackground.className = 'ct-popup-background';
         divBackground.id = 'ct-popup-bg-' + popupId;
         divBackground.onclick = function () {
-            creativaPopup.timerClose(popupId, options);
+            CreativaPopup.timerClose(popupId, options);
         };
     
         // Popup box creation
         var divBox = document.createElement('div');
         divBox.className = 'ct-popup-box';
         divBox.id = 'ct-popup-box-' + popupId;
-        divBox.innerHTML = `<span class="ct-popup-image" id="ct-popup-image-` + popupId + `"></span>
-                            <div class="ct-popup-content" id="ct-popup-content-` + popupId + `">
-                                <span class="ct-popup-icon" id="ct-popup-icon-` + popupId + `"></span>
-                                <h1 class="ct-popup-title" id="ct-popup-title-` + popupId + `"></h1>
-                                <p class="ct-popup-text" id="ct-popup-text-` + popupId + `"></p>
-                                <div class="ct-popup-options" id="ct-popup-options-` + popupId + `"></div>
-                            </div>
-                            <div class="ct-popup-close-icon" id="ct-popup-close-icon-` + popupId + `" onclick="creativaPopup.closePopup(` + popupId + `)">
-                                <div class="ct-popup-close-icon-line-first">
-                                    <div class="ct-popup-close-icon-line-second"></div>
-                                </div>
-                            </div>`;
+        divBox.innerHTML = `
+            <span class="ct-popup-image" id="ct-popup-image-` + popupId + `"></span>
+            <div class="ct-popup-content" id="ct-popup-content-` + popupId + `">
+                <span class="ct-popup-icon" id="ct-popup-icon-` + popupId + `"></span>
+                <h1 class="ct-popup-title" id="ct-popup-title-` + popupId + `"></h1>
+                <p class="ct-popup-text" id="ct-popup-text-` + popupId + `"></p>
+                <div class="ct-popup-other-content" id="ct-popup-other-content-` + popupId + `"></div>
+            </div>
+            <div class="ct-popup-close-icon" id="ct-popup-close-icon-` + popupId + `" onclick="CreativaPopup.closePopup(` + popupId + `)">
+                <div class="ct-popup-close-icon-line-first">
+                    <div class="ct-popup-close-icon-line-second"></div>
+                </div>
+            </div>
+        `;
     
         // Append popup to page
         document.body.appendChild(divBackground);
         document.body.appendChild(divBox);
 
-        // Variables
-        let thereIsContent = false;
-        let icon, image, content, isPage, openAnimation, closeButton, closeAnimation, position, bgColor, titleColor, textColor, borderRadius, fontFamily, noBackground, timer;
-        let isBlocked = false;
-        let width = '', height = '';
-        let positionBottom = window.innerHeight - 100;
+        let options = {
+            image: '',
+            content: null,
+            isPage: false,
+            isBlocked: false,
+            width: null,
+            height: null,
+            thereIsConten: false,
+            openAnimation: 'card-bottom',
+            closeAnimation: 'card-top',
+            position: 'center',
+            bgColor: '#fff',
+            titleColor: '#404040',
+            textColor: '#606060',
+            borderRadius: '8px',
+            fontFamily: 'sans-serif',
+            boxShadow: '0px 6px 12px 2px #222',
+            closeButton: true,
+            noBackground: false,
+            timer: false,
+            animationSpeed: CreativaPopup.animationDuration
+        }
     
         // Popup components
         let popupBg = document.getElementById('ct-popup-bg-' + popupId);
@@ -73,81 +130,29 @@ class CreativaPopup {
         let popupTitle = document.getElementById('ct-popup-title-' + popupId);
         let popupText = document.getElementById('ct-popup-text-' + popupId);
         let popupCloseIcon = document.getElementById('ct-popup-close-icon-' + popupId);
-        let popupOptionsContent = document.getElementById('ct-popup-options-' + popupId);
+        let popupOtherContent = document.getElementById('ct-popup-other-content-' + popupId);
     
-        if (typeof options !== 'undefined' && options !== null && options !== '') {
-            content = options['content'];
-            isPage = options['isPage'];
-            isBlocked = options['isBlocked'];
-            width = options['width'];
-            height = options['height'];
-            thereIsContent = true;
-            openAnimation = options['openAnimation'];
-            closeAnimation = options['closeAnimation'];
-            position = options['position'];
-            bgColor = options['bgColor'];
-            titleColor = options['titleColor'];
-            textColor = options['textColor'];
-            borderRadius = options['borderRadius'];
-            fontFamily = options['fontFamily'];
-            closeButton = options['closeButton'];
-            noBackground = options['noBackground'];
-            timer = options['timer'];
-            icon = options.icon;
-            image = options.image;
-            this.animationSpeed = options['animationSpeed'];
-        } else {
-    
-            // Default values
-            content = null;
-            isPage = false;
-            isBlocked = false;
-            width = null;
-            height = null;
-            thereIsContent = false;
-            openAnimation = 'fade';
-            closeAnimation = 'fade';
-            position = 'center';
-            bgColor = '#fff';
-            titleColor = '#404040';
-            textColor = '#606060';
-            borderRadius = '3px';
-            fontFamily = 'sans-serif';
-            closeButton = true;
-            noBackground = false;
-            timer = false;
-            this.animationSpeed = 150;
-    
+        // Input option values
+        if (inputOptions) {
+            Object.keys(inputOptions).forEach(function(key) {
+                if (key === 'animationSpeed') CreativaPopup.animationSpeed = inputOptions[key];
+                if (key in options) options[key] = inputOptions[key];
+            });
         }
-    
-        if (typeof openAnimation == 'undefined') openAnimation = 'fade';
-        if (typeof closeAnimation == 'undefined') closeAnimation = 'fade';
-        if (typeof position == 'undefined') position = 'center';
-        if (typeof bgColor == 'undefined') bgColor = '#fff';
-        if (typeof titleColor == 'undefined') titleColor = '#404040';
-        if (typeof textColor == 'undefined') textColor = '#606060';
-        if (typeof borderRadius == 'undefined') borderRadius = '3px';
-        if (typeof fontFamily == 'undefined') fontFamily = 'sans-serif';
-        if (typeof closeButton == 'undefined') closeButton = true;
-        if (typeof noBackground == 'undefined') noBackground = false;
-        if (typeof timer == 'undefined') timer = false;
-        if (typeof animationSpeed == 'undefined') this.animationSpeed = 150;
-    
-        popupBg.setAttribute('isBlocked', isBlocked);
-        popupBox.setAttribute('openAnimation', openAnimation);
-        popupBox.setAttribute('closeAnimation', closeAnimation);
-        popupBox.setAttribute('position', position);
-        popupBox.setAttribute('bgColor', bgColor);
-        popupBox.setAttribute('titleColor', titleColor);
-        popupBox.setAttribute('textColor', textColor);
-        popupBox.setAttribute('borderRadius', borderRadius);
-        popupBox.setAttribute('fontFamily', fontFamily);
-        popupBox.setAttribute('closeButton', closeButton);
-        popupBox.setAttribute('noBackground', noBackground);
-        popupBox.setAttribute('animationSpeed', this.animationSpeed);
-        
-        if (timer !== false && timer > 0) {
-            timerClose(totalPopups, timer);
+
+        // Box options
+        Object.keys(options).forEach(function(key) {
+            let backgroundOptions = ['isBlocked'];
+            if (backgroundOptions.includes(key)) {
+                popupBg.setAttribute(key, options[key]);
+            } else {
+                popupBox.setAttribute(key, options[key]);
+            }
+        });
+            
+        // Timer close
+        if (options.timer) {
+            CreativaPopup.timerClose(popupId, options.timer);
         }
     
         // Close button
@@ -159,139 +164,119 @@ class CreativaPopup {
         if (popupBox.getAttribute('noBackground') == 'true') {
             popupBg.setAttribute('style', 'display: none;');
         }
+
+        // Text and title
+        if (text) popupText.innerHTML = text;
+        if (title) popupTitle.innerHTML = title;
     
-        popupImage.style.display = "none";
-        popupIcon.style.display = "none";
-    
-        if (image) {
-    
-            let imageUrl;
-            switch (image) {
-    
-                default:
-                    imageUrl = image;
-    
-            }
-    
-            popupImage.style.backgroundImage = 'url(' + imageUrl + ')';
-            popupImage.style.display = 'block';
-    
-        }
-    
+        // Icon
+        popupIcon.style.display = 'none';
         if (icon) {
-            let iconUrl;
+            let iconUrl = '';
             switch (icon) {
-    
                 case 'error':
-                    iconUrl = creativaPopup.cdn + 'icons/error.png';
+                    iconUrl = this.cdn + 'icons/error.png';
                     break;
                 case 'success':
-                    iconUrl = creativaPopup.cdn + 'icons/success.png';
+                    iconUrl = this.cdn + 'icons/success.png';
                     break;
                 case 'info':
-                    iconUrl = creativaPopup.cdn + 'icons/info.png';
+                    iconUrl = this.cdn + 'icons/info.png';
                     break;
                 default:
                     iconUrl = icon;
-    
             }
-    
             popupIcon.style.backgroundImage = 'url(' + iconUrl + ')';
             popupIcon.style.display = 'block';
-    
+        }
+
+        // Image
+        popupImage.style.display = 'none';
+        if (options.image) {
+            popupImage.style.backgroundImage = 'url(' + options.image + ')';
+            popupImage.style.display = 'block';
+            popupImage.style.borderTopLeftRadius = options.borderRadius;
+            popupImage.style.borderTopRightRadius = options.borderRadius;
         }
     
-        popupTitle.innerHTML = title;
-        popupText.innerHTML = text;
-    
-        let popupoptions = document.getElementById('ct-popup-options-' + popupId);
-        if (typeof content == 'undefined' || content == null || content == '') {
-            popupoptions.style.marginTop = '0';
-            popupoptions.style.innerHtml = '';
+        // Other content
+        if (!popupOtherContent) {
+            popupOtherContent.style.marginTop = '0';
+            popupOtherContent.style.innerHtml = '';
         } else {
-            if (thereIsContent) {
-                if (!isPage) {
-                    popupoptions.innerHTML = content;
+            if (options.content) {
+                if (!options.isPage) {
+                    popupOtherContent.innerHTML = options.content;
                 } else {
                     if (window.jQuery) {  
-                        $(popupoptions).load(content);
-                       } else {
-                        creativaPopup.loadContent(popupoptions, content);
+                        $(popupOtherContent).load(options.content);
+                    } else {
+                        CreativaPopup.loadContent(popupId, options.content);
                     }
                 }
-                if (popupTitle.innerHTML !== '' && popupText.innerHTML !== '' && popupTitle !== null && popupText !== null) popupoptions.style.marginTop = '10px';
+                if (text || title) {
+                    popupOtherContent.style.marginTop = '10px';
+                }
             }
         }
     
-        let zIndexFirst = 100 + popupId + 1;
-        let zIndexSecond = 100 + popupId + 2;
-        popupBg.style.zIndex = zIndexFirst.toString();
+        // z-index
+        let zIndexBackground = (999999 + popupId + 1).toString();
+        let zIndexBox = (999999 + popupId + 2).toString();
+        popupBg.style.zIndex = zIndexBackground;
+        
+        // Background animation
         popupBg.style.animationDuration = parseInt(popupBox.getAttribute('animationSpeed')) / 1000 + 's';
         popupBg.classList.add('ct-popup-show');
         popupBg.classList.add('fade-ct-popup-animation-open');
     
-        let popupBoxPosition;
-        switch (position) {
-    
-            case 'top':
-                popupBoxPosition = 'top: 100px';
-                break;
-            case 'bottom':
-                popupBoxPosition = 'top: ' + positionBottom + 'px';
-                break;
-    
+        // Popup position
+        let positionBottom = window.innerHeight - 100;
+        let popupBoxPosition = '';
+        if (options.position) {
+            switch (options.position) {
+                case 'top':
+                    popupBoxPosition = 'top: 100px';
+                    break;
+                case 'bottom':
+                    popupBoxPosition = 'top: ' + positionBottom + 'px';
+                    break;
+            }
         }
-    
-        let popupBoxStyle = 'background: ' + popupBox.getAttribute('bgColor') + ' !important; z-index: ' + zIndexSecond.toString() + ';' + popupBoxPosition + ' !important;' + 'border-radius: ' + popupBox.getAttribute('borderRadius') + ' !important; font-family: ' + popupBox.getAttribute('fontFamily') + ' !important; animation-duration: ' + parseInt(popupBox.getAttribute('animationSpeed')) / 1000 + 's !important; ';
-    
-        if (width !== null) popupBoxStyle += ' width: ' + width + ' !important;';
-        if (height !== null) popupBoxStyle += ' height: ' + height + ' !important;';
+
+        // Box style
+        let popupBoxStyle = `
+            background: ${popupBox.getAttribute('bgColor')} !important;
+            z-index: ${zIndexBox} !important;
+            box-shadow: ${popupBox.getAttribute('boxShadow')} !important;
+            ${popupBoxPosition} !important;
+            border-radius: ${popupBox.getAttribute('borderRadius')} !important;
+            font-family: ${popupBox.getAttribute('fontFamily')} !important;
+            animation-duration: ${popupBox.getAttribute('animationSpeed') / 1000}s !important;
+        `;
+
+        // Other box style
+        if (options.width) popupBoxStyle += ' width: ' + options.width + ' !important;';
+        if (options.height) popupBoxStyle += ' height: ' + options.height + ' !important;';
+        
+        // Box animation
         popupBox.classList.add('ct-popup-show');
         popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
+
+        // Box style application
         popupBox.setAttribute('style', popupBoxStyle);
         popupTitle.setAttribute('style', 'color: ' + popupBox.getAttribute('titleColor') + ' !important');
         popupText.setAttribute('style', 'color: ' + popupBox.getAttribute('textColor') + ' !important');
-    
-        popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 170) + 'px !important;');
-    
+
+        // Box max height
+        popupOtherContent.style.maxHeight = (window.innerHeight - 170) + 'px';
         window.addEventListener('resize', function() {
-            popupOptionsContent.setAttribute('style', 'max-height: ' + (window.innerHeight - 170) + 'px !important;');
+            popupOtherContent.style.maxHeight = (window.innerHeight - 170) + 'px';
         });
     
     }
 
-    closePopup(id, options) {
-        let selectedPopupBg = document.getElementById('ct-popup-bg-' + id);
-        let selectedPopupBox = document.getElementById('ct-popup-box-' + id);
-    
-        let isSelectedPopupBlocked
-        if (selectedPopupBg !== null) {
-            isSelectedPopupBlocked = (selectedPopupBg.getAttribute('isBlocked') == "true");
-        } else {
-           isSelectedPopupBlocked = false;
-        }
-    
-        if (!isSelectedPopupBlocked) {
-    
-            selectedPopupBg.classList.add('fade-ct-popup-animation-close');
-            setTimeout(function() {
-                selectedPopupBg.remove();
-            }, this.animationSpeed);
-    
-            selectedPopupBox.classList.remove(selectedPopupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
-            selectedPopupBox.classList.add(selectedPopupBox.getAttribute('closeAnimation') + '-ct-popup-animation-close');
-    
-            setTimeout(function() {
-                selectedPopupBox.remove();
-            }, this.animationSpeed);
-            this.totalPopups --;
-    
-        }
-    }
-
 }
-
-var creativaPopup = new CreativaPopup();
 
 // CSS load
 window.onload = function() {
@@ -307,8 +292,8 @@ window.onload = function() {
 // Esc button to close
 document.onkeydown = function(evt) {
     if (evt.key && evt.key.toString().toLowerCase() === 'escape') {
-        if (creativaPopup.totalPopups > 0) {
-            creativaPopup.closePopup(totalPopups);
+        if (CreativaPopup.totalPopups > 0) {
+            CreativaPopup.closePopup(CreativaPopup.totalPopups);
         }
     }
 }
