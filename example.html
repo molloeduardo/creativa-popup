@@ -126,6 +126,9 @@
 
         </div>
 
+
+        <span>&#9432;</span>
+
     </body>
 
 </html>
@@ -133,81 +136,81 @@
 <script>
 
     function popup1() {
-        popup('Title', 'This is the text of the popup.');
+        creativaPopup.create('Title', 'This is the text of the popup.');
     }
 
     function popup2() {
-        popup('Title', 'This is the text of the popup.', 'info');
+        creativaPopup.create('Title', 'This is the text of the popup.', { icon: 'info' });
     }
 
     function popup3() {
-        popup('Title', 'This is the text of the popup.', 'fruit.png');
+        creativaPopup.create('Title', 'This is the text of the popup.', { icon: 'fruit.png' });
     }
 
     function popup4() {
-        popup('Title', 'This is the text of the popup.', 'success', 'image.jpg');
+        creativaPopup.create('Title', 'This is the text of the popup.', 'success', 'image.jpg');
     }
 
     function popup5() {
-        popup('Title', 'You can\'t close this popup.', '', '', { isBlocked: true });
+        creativaPopup.create('Title', 'You can\'t close this popup.', '', '', { isBlocked: true });
     }
 
     function popup6() {
-        popup('', '', '', '', { content: 'This is custom content.', isPage: false });
+        creativaPopup.create('', '', '', '', { content: 'This is custom content.', isPage: false });
     }
 
     function popup7() {
-        popup('', '', '', '', { content: 'another-page.html', isPage: true });
+        creativaPopup.create('', '', '', '', { content: 'another-page.html', isPage: true });
     }
 
     function popup8() {
-        popup('Title', 'This is the text of the popup.', 'info', '', { width: '400px', height: '400px' })
+        creativaPopup.create('Title', 'This is the text of the popup.', 'info', '', { width: '400px', height: '400px' })
     }
 
     function popup9() {
-        popup('Title', 'This is the text of the popup.', 'info', '', { openAnimation: 'card-left', closeAnimation: 'card-right' })
+        creativaPopup.create('Title', 'This is the text of the popup.', 'info', '', { openAnimation: 'card-left', closeAnimation: 'card-right' })
     }
 
     function popup10() {
-        popup('Title', 'This is the text of the popup.', '', '', { position: 'top', openAnimation: 'bubble', closeAnimation: 'bubble' });
+        creativaPopup.create('Title', 'This is the text of the popup.', '', '', { position: 'top', openAnimation: 'bubble', closeAnimation: 'bubble' });
     } 
 
     function popup11() {
-        popup('Title', 'First popup.', '', '', { closeAnimation: 'bubble' });
-        popup('Title', 'Second popup.', '', '', { closeAnimation: 'card-left' });
-        popup('Title', 'Third popup.', '', '', { closeAnimation: 'card-right' });
+        creativaPopup.create('Title', 'First popup.', '', '', { closeAnimation: 'bubble' });
+        creativaPopup.create('Title', 'Second popup.', '', '', { closeAnimation: 'card-left' });
+        creativaPopup.create('Title', 'Third popup.', '', '', { closeAnimation: 'card-right' });
     }
 
     function popup12() {
-        popup('Title', 'This popup has a different background color and opacity.', '', '', { bgColor: '#ff000044' })
+        creativaPopup.create('Title', 'This popup has a different background color and opacity.', '', '', { bgColor: '#ff000044' })
     }
 
     function popup13() {
-        popup('Title', 'This popup has title and text with different colors.', '', '', { titleColor: '#ff0000', textColor: '#00ff00' });
+        creativaPopup.create('Title', 'This popup has title and text with different colors.', '', '', { titleColor: '#ff0000', textColor: '#00ff00' });
     }
 
     function popup14() {
-        popup('Title', 'This popup has a custom border radius.', '', '', { borderRadius: '15px', closeButton: true });
+        creativaPopup.create('Title', 'This popup has a custom border radius.', '', '', { borderRadius: '15px', closeButton: true });
     }
 
     function popup15() {
-        popup('Title', 'This popup has a custom font.', '', '', { fontFamily: 'Times New Roman' });
+        creativaPopup.create('Title', 'This popup has a custom font.', '', '', { fontFamily: 'Times New Roman' });
     }
 
     function popup16() {
-        popup('Title', 'This popup has no close button.', '', '', { closeButton: false });
+        creativaPopup.create('Title', 'This popup has no close button.', '', '', { closeButton: false });
     }
 
     function popup17() {
-        popup('Title', 'This popup has no background.', '', '', { noBackground: true });
+        creativaPopup.create('Title', 'This popup has no background.', '', '', { noBackground: true });
     }
 
     function popup18() {
-        popup('Title', 'This popup will close after 3 seconds.', '', '', { timer: 3, closeAnimation: 'card-right' });
+        creativaPopup.create('Title', 'This popup will close after 3 seconds.', '', '', { timer: 3, closeAnimation: 'card-right' });
     }
 
     function popup19() {
-        popup('Title', 'This popup has a custom speed animation.', '', '', { openAnimation: 'card-top', closeAnimation: 'card-bottom', animationSpeed: 400 });
+        creativaPopup.create('Title', 'This popup has a custom speed animation.', '', '', { openAnimation: 'card-top', closeAnimation: 'card-bottom', animationSpeed: 400 });
     }
 
 </script>
