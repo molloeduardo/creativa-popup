@@ -1,7 +1,7 @@
 class CreativaPopup {
 
-    static version = '0.1';
-    static cdn = 'https://creativajs.altervista.org/popup/';
+    static version = '0.2';
+    static cdn = 'https://creativajs.altervista.org/popup/0.2/';
 
     static totalPopups = 0;
     static animationSpeed = 150;
