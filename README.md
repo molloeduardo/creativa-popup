@@ -4,6 +4,9 @@ This is a simple library that allows you to create awesome popups importing just
 You can import the JS file in two ways:
 1. Using the HTTPS link to the file: https://creativajs.altervista.org/popup/0.2/creativa-popup.js
 2. With offline file. If you want to use the offline file just download the archive, import the **creativa-popup.js** file in your project and use it into your HTML.
+## Examples
+You can download the archive from GitHub and try the **example.html** file.
+Or you can go here: https://creativajs.altervista.org/popup/0.2/example.html
 ## Where is the CSS?
 The CSS will be automatically included from the **creativa-popup.js** file inside the HTML head. If this not happens or you want to use it locally, just import and use the CSS file too.
 ## Customizable
@@ -19,9 +22,6 @@ You can open multiple popups one over another.
 - Safari
 
 It doesn't work with the old Internet Explorer.
-## Examples
-You can download the archive from GitHub and try the **example.html** file.
-Or you can go here: https://creativajs.altervista.org/popup/0.2/example.html
 ## Slow loading icons and CSS
 The reason why the icons are loading too slow is that they are loaded from an external CDN. You can open the JavaScript file and replace that CDN link with your own local folder and put the icons inside it, so they will be loaded from your local storage. The same thing has to be done for the CSS file.
 ## Syntax
