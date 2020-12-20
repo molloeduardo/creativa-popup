@@ -106,9 +106,10 @@ class CreativaPopup {
             isBlocked: false,
             width: null,
             height: null,
-            thereIsConten: false,
             openAnimation: 'card-bottom',
             closeAnimation: 'card-top',
+            animationType: '',
+            animationSpeed: CreativaPopup.animationDuration,
             position: 'center',
             bgColor: '#fff',
             titleColor: '#404040',
@@ -117,9 +118,8 @@ class CreativaPopup {
             fontFamily: 'sans-serif',
             boxShadow: '0px 6px 12px 2px #222',
             closeButton: true,
-            noBackground: false,
+            background: false,
             timer: false,
-            animationSpeed: CreativaPopup.animationDuration
         }
     
         // Popup components
@@ -161,7 +161,7 @@ class CreativaPopup {
         }
     
         // No background
-        if (popupBox.getAttribute('noBackground') == 'true') {
+        if (popupBox.getAttribute('background') === 'false') {
             popupBg.setAttribute('style', 'display: none;');
         }
 
@@ -249,10 +249,12 @@ class CreativaPopup {
             background: ${popupBox.getAttribute('bgColor')} !important;
             z-index: ${zIndexBox} !important;
             box-shadow: ${popupBox.getAttribute('boxShadow')} !important;
-            ${popupBoxPosition} !important;
+            ${popupBoxPosition}
             border-radius: ${popupBox.getAttribute('borderRadius')} !important;
             font-family: ${popupBox.getAttribute('fontFamily')} !important;
+            animation-timing-function: ${popupBox.getAttribute('animationType')} !important;
             animation-duration: ${popupBox.getAttribute('animationSpeed') / 1000}s !important;
+            transform: translate(-50%, -50%);
         `;
 
         // Other box style

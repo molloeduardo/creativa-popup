@@ -77,6 +77,10 @@ CreativaPopup.create('Text', 'icon', 'icon', { openAnimation: 'card-left', close
 ```
 CreativaPopup.create('Text', 'Title', 'icon', { openAnimation: 'card-left', closeAnimation: 'card-right', animationSpeed: 400 });
 ```
+- **Custom animation type:** you can change the animation type by setting the CSS timing function name. The default value is ***ease***.
+```
+CreativaPopup.create('Text', 'Title', 'icon', { animationType: 'ease-out' });
+```
 - **Custom size:** you can use different width and height for your popup.
 ```
 CreativaPopup.create('Text', 'Title', 'icon', { width: '300px', height: '400px' });
@@ -100,6 +104,10 @@ CreativaPopup.create('Text', 'Title', 'icon', { bgColor: 'rgb(255, 0, 0)' });
 
 // Red opaque background using RGBA code.
 CreativaPopup.create('Text', 'Title', 'icon', { bgColor: 'rgba(255, 0, 0, 0.4)' });
+```
+- **Remove Background:** you can remove the background panel with this simple option.
+```
+CreativaPopup.create('Text', 'Title', 'icon', { background: true });
 ```
 - **Title/text color:** you can set the title and text color using HEX, RGB, RGBA codes.
 ```
@@ -130,10 +138,6 @@ CreativaPopup.create('Text', 'Title', 'icon', { boxShadow: '0px 6px 12px 2px #re
 - **Close button:** by default the popup has a red close button on the top right corner, but you can hide it.
 ```
 CreativaPopup.create('Text', 'Title', 'icon', { closeButton: false });
-```
-- **No Background:** you can remove the background panel with this simple option.
-```
-CreativaPopup.create('Text', 'Title', 'icon', { noBackground: true });
 ```
 - **Timer:** you can set a timer (in seconds) and the popup will close after the time ends.
 ```
