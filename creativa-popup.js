@@ -32,23 +32,23 @@ class CreativaPopup {
     static closePopup(popupId) {
         let selectedPopupBg = document.getElementById('ct-popup-bg-' + popupId);
         let selectedPopupBox = document.getElementById('ct-popup-box-' + popupId);
-    
+
         // Check for blocked popup
         let isSelectedPopupBlocked = false;
         if (selectedPopupBg && (selectedPopupBg.getAttribute('isBlocked') == 'true')) {
            isSelectedPopupBlocked = true;
         }
-    
+
         if (!isSelectedPopupBlocked) {
-            
+
             selectedPopupBg.classList.add('fade-ct-popup-animation-close');
             setTimeout(function() {
                 selectedPopupBg.remove();
             }, CreativaPopup.animationSpeed);
-    
+
             selectedPopupBox.classList.remove(selectedPopupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
             selectedPopupBox.classList.add(selectedPopupBox.getAttribute('closeAnimation') + '-ct-popup-animation-close');
-    
+
             setTimeout(function() {
                 selectedPopupBox.remove();
             }, CreativaPopup.animationSpeed);
@@ -63,11 +63,11 @@ class CreativaPopup {
     }
 
     static create(text, title, icon, inputOptions) {
-        
+
         // Instance and popup ID
         CreativaPopup.totalPopups ++;
         let popupId = CreativaPopup.totalPopups;
-    
+
         // Popup background creation
         var divBackground = document.createElement('div');
         divBackground.className = 'ct-popup-background';
@@ -75,7 +75,7 @@ class CreativaPopup {
         divBackground.onclick = function () {
             CreativaPopup.timerClose(popupId, options);
         };
-    
+
         // Popup box creation
         var divBox = document.createElement('div');
         divBox.className = 'ct-popup-box';
@@ -94,7 +94,7 @@ class CreativaPopup {
                 </div>
             </div>
         `;
-    
+
         // Append popup to page
         document.body.appendChild(divBackground);
         document.body.appendChild(divBox);
@@ -118,10 +118,10 @@ class CreativaPopup {
             fontFamily: 'sans-serif',
             boxShadow: '0px 6px 12px 2px #222',
             closeButton: true,
-            background: false,
+            background: true,
             timer: false,
         }
-    
+
         // Popup components
         let popupBg = document.getElementById('ct-popup-bg-' + popupId);
         let popupBox = document.getElementById('ct-popup-box-' + popupId);
@@ -131,7 +131,7 @@ class CreativaPopup {
         let popupText = document.getElementById('ct-popup-text-' + popupId);
         let popupCloseIcon = document.getElementById('ct-popup-close-icon-' + popupId);
         let popupOtherContent = document.getElementById('ct-popup-other-content-' + popupId);
-    
+
         // Input option values
         if (inputOptions) {
             Object.keys(inputOptions).forEach(function(key) {
@@ -149,17 +149,17 @@ class CreativaPopup {
                 popupBox.setAttribute(key, options[key]);
             }
         });
-            
+
         // Timer close
         if (options.timer) {
             CreativaPopup.timerClose(popupId, options.timer);
         }
-    
+
         // Close button
         if (popupBox.getAttribute('closeButton') == 'false' || popupBg.getAttribute('isBlocked') == 'true') {
             popupCloseIcon.setAttribute('style', 'display: none;');
         }
-    
+
         // No background
         if (popupBox.getAttribute('background') === 'false') {
             popupBg.setAttribute('style', 'display: none;');
@@ -168,7 +168,7 @@ class CreativaPopup {
         // Text and title
         if (text) popupText.innerHTML = text;
         if (title) popupTitle.innerHTML = title;
-    
+
         // Icon
         popupIcon.style.display = 'none';
         if (icon) {
@@ -198,7 +198,7 @@ class CreativaPopup {
             popupImage.style.borderTopLeftRadius = options.borderRadius;
             popupImage.style.borderTopRightRadius = options.borderRadius;
         }
-    
+
         // Other content
         if (!popupOtherContent) {
             popupOtherContent.style.marginTop = '0';
@@ -208,7 +208,7 @@ class CreativaPopup {
                 if (!options.isPage) {
                     popupOtherContent.innerHTML = options.content;
                 } else {
-                    if (window.jQuery) {  
+                    if (window.jQuery) {
                         $(popupOtherContent).load(options.content);
                     } else {
                         CreativaPopup.loadContent(popupId, options.content);
@@ -219,17 +219,17 @@ class CreativaPopup {
                 }
             }
         }
-    
+
         // z-index
         let zIndexBackground = (999999 + popupId + 1).toString();
         let zIndexBox = (999999 + popupId + 2).toString();
         popupBg.style.zIndex = zIndexBackground;
-        
+
         // Background animation
         popupBg.style.animationDuration = parseInt(popupBox.getAttribute('animationSpeed')) / 1000 + 's';
         popupBg.classList.add('ct-popup-show');
         popupBg.classList.add('fade-ct-popup-animation-open');
-    
+
         // Popup position
         let positionBottom = window.innerHeight - 100;
         let popupBoxPosition = '';
@@ -249,7 +249,7 @@ class CreativaPopup {
             background: ${popupBox.getAttribute('bgColor')} !important;
             z-index: ${zIndexBox} !important;
             box-shadow: ${popupBox.getAttribute('boxShadow')} !important;
-            ${popupBoxPosition}
+            ${popupBoxPosition} !important;
             border-radius: ${popupBox.getAttribute('borderRadius')} !important;
             font-family: ${popupBox.getAttribute('fontFamily')} !important;
             animation-timing-function: ${popupBox.getAttribute('animationType')} !important;
@@ -260,7 +260,7 @@ class CreativaPopup {
         // Other box style
         if (options.width) popupBoxStyle += ' width: ' + options.width + ' !important;';
         if (options.height) popupBoxStyle += ' height: ' + options.height + ' !important;';
-        
+
         // Box animation
         popupBox.classList.add('ct-popup-show');
         popupBox.classList.add(popupBox.getAttribute('openAnimation') + '-ct-popup-animation-open');
@@ -275,7 +275,7 @@ class CreativaPopup {
         window.addEventListener('resize', function() {
             popupOtherContent.style.maxHeight = (window.innerHeight - 170) + 'px';
         });
-    
+
     }
 
 }
