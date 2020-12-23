@@ -5,6 +5,23 @@ You can import the JS file in two ways:
 1. Using the HTTPS link to the file: https://creativajs.altervista.org/popup/0.2/creativa-popup.js
 2. With offline file. If you want to use the offline file just download the archive, import the **creativa-popup.js** file in your project and use it into your HTML.
 ## Examples
+Basic example:
+```
+<html>
+    <head>
+        <script src="https://creativajs.altervista.org/popup/0.2/creativa-popup.js"></script>
+        <title>Creativa Popup - Example</title>
+    </head>
+    <body>
+        <button onclick="popup()">Open popup</button>
+    </body>
+    <script>
+        function popup() {
+            CreativaPopup.create('This is the text of the popup.');
+        }
+    </script>
+</html>
+```
 You can download the archive from GitHub and try the **example.html** file.
 Or you can go here: https://creativajs.altervista.org/popup/0.2/example.html
 ## Where is the CSS?
