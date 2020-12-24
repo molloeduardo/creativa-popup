@@ -119,6 +119,7 @@ class CreativaPopup {
             boxShadow: '0px 6px 12px 2px #222',
             closeButton: true,
             background: true,
+            box: true,
             timer: false,
         }
 
@@ -138,6 +139,13 @@ class CreativaPopup {
                 if (key === 'animationSpeed') CreativaPopup.animationSpeed = inputOptions[key];
                 if (key in options) options[key] = inputOptions[key];
             });
+        }
+
+        // Box hide
+        console.log(options);
+        if (options.box === false) {
+            options.bgColor = 'rgba(0, 0, 0, 0)';
+            options.boxShadow = false;
         }
 
         // Box options
@@ -246,7 +254,7 @@ class CreativaPopup {
 
         // Box style
         let popupBoxStyle = `
-            background: ${popupBox.getAttribute('bgColor')} !important;
+            background-color: ${popupBox.getAttribute('bgColor')} !important;
             z-index: ${zIndexBox} !important;
             box-shadow: ${popupBox.getAttribute('boxShadow')} !important;
             ${popupBoxPosition} !important;

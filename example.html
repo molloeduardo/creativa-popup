@@ -124,6 +124,12 @@
                 <button onclick="popup19()">Open popup</button>
             </div>
 
+            <div class="group">
+                <h1>Popup without the box container</h1>
+                <p>Popup with title, text and without the box container.</p>
+                <button onclick="popup20()">Open popup</button>
+            </div>
+
         </div>
 
     </body>
@@ -208,6 +214,10 @@
 
     function popup19() {
         CreativaPopup.create('This popup has a custom speed animation.', 'Title', '', { openAnimation: 'card-top', closeAnimation: 'card-bottom', animationSpeed: 400 });
+    }
+
+    function popup20() {
+        CreativaPopup.create('This is a popup without the box.', 'Title', '', { box: false, titleColor: '#fff', textColor: '#fff' });
     }
 
 </script>

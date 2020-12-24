@@ -126,6 +126,10 @@ CreativaPopup.create('Text', 'Title', 'icon', { bgColor: 'rgba(255, 0, 0, 0.4)' 
 ```
 CreativaPopup.create('Text', 'Title', 'icon', { background: true });
 ```
+- **Remove Box Container:** you can remove the box container with this option.
+```
+CreativaPopup.create('Text', 'Title', 'icon', { box: false });
+```
 - **Title/text color:** you can set the title and text color using HEX, RGB, RGBA codes.
 ```
 // Red title and text using HEX code
