@@ -142,7 +142,6 @@ class CreativaPopup {
         }
 
         // Box hide
-        console.log(options);
         if (options.box === false) {
             options.bgColor = 'rgba(0, 0, 0, 0)';
             options.boxShadow = false;
