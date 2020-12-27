@@ -261,7 +261,6 @@ class CreativaPopup {
             font-family: ${popupBox.getAttribute('fontFamily')} !important;
             animation-timing-function: ${popupBox.getAttribute('animationType')} !important;
             animation-duration: ${popupBox.getAttribute('animationSpeed') / 1000}s !important;
-            transform: translate(-50%, -50%);
         `;
 
         // Other box style

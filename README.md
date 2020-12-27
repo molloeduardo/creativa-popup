@@ -166,6 +166,7 @@ CreativaPopup.create('Text', 'Title', 'icon', { timer: 3 });
 ```
 - ### Closing function
 - If you want to close a specific popup you can call the function **CreativaPopup.closePopup(popupID)**.
-- If you want to close all the opened popups you can call the method **CreativaPoup.closeAll()**.
+- If you want to close all the opened popups you can call the method **CreativaPopup.closeAll()**.
+- If you want to close the popup after a certain time you can call the method **CreativaPopup.timerClose(popupID, timeSeconds)**.
 ## Conclusions
 Of course you can use every option you want and mix them together.
