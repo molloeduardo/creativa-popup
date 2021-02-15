@@ -51,8 +51,8 @@ class CreativaPopup {
 
             setTimeout(function() {
                 selectedPopupBox.remove();
+                CreativaPopup.totalPopups --;
             }, CreativaPopup.animationSpeed);
-            CreativaPopup.totalPopups --;
         }
     }
 
