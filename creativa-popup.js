@@ -50,6 +50,8 @@ class CreativaPopup {
             selectedPopupBox.classList.add(selectedPopupBox.getAttribute('closeAnimation') + '-ct-popup-animation-close');
 
             setTimeout(function() {
+                const event = new CustomEvent('onPopupClose', { detail: parseInt(CreativaPopup.totalPopups) });
+                document.dispatchEvent(event);
                 selectedPopupBox.remove();
                 CreativaPopup.totalPopups --;
             }, CreativaPopup.animationSpeed);

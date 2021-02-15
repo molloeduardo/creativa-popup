@@ -138,6 +138,11 @@
 
 <script>
 
+    // Event listener for the popup closure
+    document.addEventListener('onPopupClose', function (e) { 
+        console.log('Popup closed ID: ' + e.detail); 
+    });
+
     function popup1() {
         CreativaPopup.create('This is the text of the popup.', 'Title');
     }

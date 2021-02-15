@@ -164,9 +164,16 @@ CreativaPopup.create('Text', 'Title', 'icon', { closeButton: false });
 ```
 CreativaPopup.create('Text', 'Title', 'icon', { timer: 3 });
 ```
-- ### Closing function
+- ### Closing functions
 - If you want to close a specific popup you can call the function **CreativaPopup.closePopup(popupID)**.
 - If you want to close all the opened popups you can call the method **CreativaPopup.closeAll()**.
 - If you want to close the popup after a certain time you can call the method **CreativaPopup.timerClose(popupID, timeSeconds)**.
+- ### Close event listener
+If you want to know when and what popup has been closed use this event listener:
+```
+document.addEventListener('onPopupClose', function (e) { 
+    console.log('Popup closed ID: ' + e.detail); 
+});
+```
 ## Conclusions
 Of course you can use every option you want and mix them together.
