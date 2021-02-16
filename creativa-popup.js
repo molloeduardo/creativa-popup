@@ -24,12 +24,12 @@ class CreativaPopup {
             if (!document.getElementById('ct-popup-box-' + i)) {
                 console.warn(`The popup with ID (${i}) does not exist.`);
             } else {
-                CreativaPopup.closePopup(i);
+                CreativaPopup.close(i);
             }
         }
     }
 
-    static closePopup(popupId) {
+    static close(popupId) {
         let selectedPopupBg = document.getElementById('ct-popup-bg-' + popupId);
         let selectedPopupBox = document.getElementById('ct-popup-box-' + popupId);
 
@@ -40,6 +40,11 @@ class CreativaPopup {
         }
 
         if (!isSelectedPopupBlocked) {
+
+            if (!selectedPopupBg) {
+                console.warn('Creativa Popup: ID not found: ' + popupId);
+                return;
+            }
 
             selectedPopupBg.classList.add('fade-ct-popup-animation-close');
             setTimeout(function() {
@@ -60,7 +65,7 @@ class CreativaPopup {
 
     static timerClose(popupId, timerTime) {
         setTimeout(function() {
-            CreativaPopup.closePopup(popupId);
+            CreativaPopup.close(popupId);
         }, timerTime * 1000);
     }
 
@@ -90,7 +95,7 @@ class CreativaPopup {
                 <p class="ct-popup-text" id="ct-popup-text-` + popupId + `"></p>
                 <div class="ct-popup-other-content" id="ct-popup-other-content-` + popupId + `"></div>
             </div>
-            <div class="ct-popup-close-icon" id="ct-popup-close-icon-` + popupId + `" onclick="CreativaPopup.closePopup(` + popupId + `)">
+            <div class="ct-popup-close-icon" id="ct-popup-close-icon-` + popupId + `" onclick="CreativaPopup.close(` + popupId + `)">
                 <div class="ct-popup-close-icon-line-first">
                     <div class="ct-popup-close-icon-line-second"></div>
                 </div>
@@ -177,6 +182,7 @@ class CreativaPopup {
         // Text and title
         if (text) popupText.innerHTML = text;
         if (title) popupTitle.innerHTML = title;
+        if (!title) popupTitle.remove();
 
         // Icon
         popupIcon.style.display = 'none';
@@ -303,7 +309,7 @@ window.onload = function() {
 document.onkeydown = function(evt) {
     if (evt.key && evt.key.toString().toLowerCase() === 'escape') {
         if (CreativaPopup.totalPopups > 0) {
-            CreativaPopup.closePopup(CreativaPopup.totalPopups);
+            CreativaPopup.close(CreativaPopup.totalPopups);
         }
     }
 }
